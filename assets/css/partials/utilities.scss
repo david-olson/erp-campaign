@@ -1,0 +1,123 @@
+.noHorizontal {
+    display: none;
+    position: fixed;
+    background-color: $premierBlue;
+    z-index: 3;
+    width: 100%;
+    h2 {
+        font-family: $roboto;
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+    p {
+        width: 90%;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        color: #ffffff;
+        font-family: $roboto;
+        font-size: 18px;
+    }
+    @media #{$allPhonesH} {
+        display: block;
+    }
+}
+
+.konamiDave {
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    animation: mymove 5s infinite;
+    transition: all ease .5s;
+    width: 50px;
+}
+
+.loginShake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translateX(0px);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translateX(-2px);
+  }
+  
+  20%, 80% {
+    transform: translateX(3px);
+  }
+
+  30%, 50%, 70% {
+    transform: translateX(-6px);
+  }
+
+  40%, 60% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes mymove {
+    0% {
+        left: 20px
+    }
+    10% {
+        bottom: 10px;
+    }
+    20% {
+        bottom: -10px;
+    }
+    30% {
+        bottom: 10px;
+    }
+    40% {
+        bottom: -0px;
+    }
+    50% {
+        bottom: 10px;
+        left: 200px;
+        transform: scale(1, 1)
+    }
+    51% {
+        transform: scale(-1, 1);
+    }
+    60% {
+        bottom: -10px;
+    }
+    70% {
+        bottom: 10px;
+    }
+    80% {
+        bottom: -10px;
+    }
+    90% {
+        bottom: 10px;
+    }
+    99% {
+        transform: scale(-1, 1)
+    }
+    100% {
+        bottom: -10px;
+        left: 20px
+    }
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}

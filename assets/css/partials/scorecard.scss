@@ -1,0 +1,256 @@
+.scorecard {
+    .logo {
+        img {
+            max-width: 200px;
+            display: block;
+            margin: 0 auto;
+            padding: 25px;
+            @media #{$allPhones} {
+                max-width: 100px;
+            }
+        }
+    }
+    display: none;
+    position: relative;
+    top: 100%;
+    h2 {
+        font-family: $roboto;
+        font-size: 78px;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 80px;
+        @media #{$allPhones} {
+            font-size: 28px;
+        }
+        @media #{$allTablets} {
+            font-size: 82px;
+        }
+    }
+    p {
+        font-family: $helvetica;
+        color: #ffffff;
+        display: block;
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto;
+        font-size: 18px;
+        text-align: center;
+        line-height: 2;
+        @media #{$allPhones} {
+            font-size: 14px;
+        }
+    }
+    h3 {
+        font-family: $roboto;
+        font-size: 28px;
+        display: block;
+        margin: 30px auto;
+        color: #ffffff;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+        @media #{$allPhones} {
+            font-size: 18px;
+        }
+    }
+    .card {
+        width: 90%;
+        max-width: 540px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        box-sizing: border-box;
+        .row {
+            display: block;
+            width: 100%;
+            margin: 0 auto 20px auto;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #efefef;
+            img {
+                max-width: 60px;
+                display: inline-block;
+                padding: 10px;
+                vertical-align: middle;
+                width: 20%;
+                box-sizing: border-box;
+                @media #{$allPhones} {
+                    display: none;
+                }
+            }
+            h3 {
+                display: inline-block;
+                vertical-align: middle;
+                font-family: $roboto;
+                font-size: 24px;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: #444444;
+                width: 60%;
+                text-align: left;
+                @media #{$allPhones} {
+                    font-size: 18px;
+                }
+                @media #{$allTablets} {
+                    font-size: 18px;
+                }
+            }
+            .score {
+                position: relative;
+                width: 60px;
+                text-align: center;
+                background-color: #efefef;
+                height: 60px;
+                border-radius: 30px;
+                float: right;
+                margin: 10px;
+                display: block;
+                box-sizing: border-box;
+                span {
+                    display: block;
+                    position: relative;
+                    top: 50%;
+                    vertical-align: middle;
+                    font-family: $roboto;
+                    font-size: 34px;
+                    line-height: 4px;
+                    font-weight: 700;
+                    color: #ffffff;
+                }
+            }
+            .score:after {
+                clear: both;
+                content: '';
+            }
+            &:last-of-type {
+                margin-bottom: 0;
+                border-bottom: 0;
+                padding-bottom: 0;
+            }
+            .overallScore {
+                font-size: 34px;
+                @media #{$allPhones} {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .emailCopyHolder {
+        width: 95%;
+        margin: 0 auto;
+        max-width: 600px;
+        input {
+            display: block;
+            width: 100%;
+            margin: 0px auto;
+            max-width: 600px;
+            box-sizing: border-box;
+            font-size: 24px;
+            outline: none;
+            border: 0px;
+            background-color: $premierBlue;
+            color: #ffffff;
+            font-family: $roboto;
+            border-bottom: 3px solid #ffffff;
+            padding-bottom: 10px;
+            backface-visibility: hidden;
+            transition: all ease .5s;
+        }
+        span {
+            margin-top: 10px;
+            color: #ffffff;
+            display: block;
+            font-family: $roboto;
+            transition: all ease .5s;
+        }
+    }
+    .sendToFriends {
+        .addFriend {
+            font-family: $roboto;
+            text-transform: uppercase;
+            color: #ffffff;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            vertical-align: middle;
+            text-align: center;
+            .clickFriend {
+                display: inline-block;
+                cursor: pointer;
+                transition: all ease .5s;
+                &:hover {
+                    opacity: .75;
+                }
+            }
+            span {
+                line-height: 20px;
+                display: inline-block;
+                vertical-align: middle;
+                padding-right: 5px;
+            }
+            .plus {
+                width: 20px;
+                height: 20px;
+                vertical-align: middle;
+            }
+        }
+        #friendEmail1,
+        #friendEmail2,
+        #friendEmail3,
+        #friendEmail4,
+        #friendEmail5 {
+            transition: all ease .5s;
+        }
+        .friendNameHolder,
+        .friendEmailHolder {
+            width: 95%;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            input {
+                display: block;
+                width: 100%;
+                margin: 0px auto;
+                max-width: 600px;
+                box-sizing: border-box;
+                font-size: 24px;
+                outline: none;
+                border: 0px;
+                background-color: $premierBlue;
+                color: #ffffff;
+                font-family: $roboto;
+                border-bottom: 3px solid #ffffff;
+                padding-bottom: 10px;
+                backface-visibility: hidden;
+                transition: all ease .5s;
+            }
+            span {
+                margin-top: 10px;
+                color: #ffffff;
+                display: block;
+                font-family: $roboto;
+                transition: all ease .5s;
+            }
+        }
+    }
+}
+
+#email {
+    transition: all ease .5s;
+}
+
+.clear {
+    clear: both;
+}
+
+.emailThankYou {
+    display: none;
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    h3 {
+        font-family: $roboto;
+        font-size: 24px;
+        color: #ffffff;
+    }
+}

@@ -1,0 +1,383 @@
+
+.pain-points {
+    div {
+        $grid-spacing: 3%;
+        width: (100%/3)-($grid-spacing * 8 / 12);
+        float: left;
+        text-align: center;
+        margin-right: $grid-spacing;
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 150px;
+            @media #{$allPhones} {
+                max-width: 65px;
+            }
+        }
+    }
+    div:nth-of-type(3n+0) {
+        margin-right: 0;
+    }
+    h3 {
+        color: #ffffff;
+        margin: 20px 0 60px 0;
+        font-family: $roboto;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        @media #{$allPhones} {
+            font-size: 12px;
+        }
+    }
+    @media #{$allPhones} {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+.pain-points:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+#panel3 {
+    .icon {
+        img {
+            max-width: 300px;
+            display: block;
+            margin: 0 auto;
+            @media #{$allPhones} {}
+            max-width: 120px;
+        }
+    }
+    h1 {
+        font-family: $roboto;
+        text-align: center;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 34px;
+        font-weight: 700;
+        @media #{$allPhones} {
+            font-size: 24px;
+        }
+    }
+    p {
+        width: 95%;
+        max-width: 600px;
+        font-family: $helvetica;
+        color: #ffffff;
+        text-align: left;
+        display: block;
+        margin: 20px auto;
+        font-weight: bold;
+        line-height: 2;
+        font-size: 18px;
+        @media #{$allPhones} {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        @media #{$allTablets} {
+            font-size: 14px;
+        }
+    }
+}
+
+.button {
+    display: block;
+    max-width: 600px;
+    width: 95%;
+    margin: 50px auto;
+    backface-visibility: hidden;
+    span {
+        backface-visibility: hidden;
+        display: block;
+        padding: 20px;
+        background-color: #ffffff;
+        color: #3aae2a;
+        text-align: center;
+        font-family: $roboto;
+        text-transform: uppercase;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 24px;
+        transition: all ease .5s;
+        cursor: pointer;
+        box-sizing: border-box;
+        border-bottom: 5px solid rgba(0, 0, 0, 0.1);
+    }
+    span:hover, span:focus {
+        background-color: #d3e8d0;
+        &:after {
+            display: block;
+            clear: both;
+            content: '';
+        }
+    }
+    @media #{$allPhones} {
+        margin: 20px auto;
+    }
+    &:after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+}
+
+button {
+    display: block;
+    max-width: 600px;
+    width: 95%;
+    margin: 50px auto;
+    backface-visibility: hidden;
+    padding: 20px;
+    background-color: #fff;
+    color: #3aae2a;
+    text-align: center;
+    font-family: $roboto;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 24px;
+    transition: all ease-out .2s;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 5px solid rgba(0,0,0, 0.1);
+    cursor: pointer;
+    outline: none;
+    &:hover, &:focus {
+        background-color: #eaeaea;
+    }
+    &:active {
+        transform: scale(.99);
+    }
+}
+#question1Next {
+    visibility: hidden;
+    transition: all ease .5s;
+    opacity: 0;
+}
+.question {
+    position: fixed;
+    top: 0;
+    width: 100%;
+//    background-color: $premierLightBlue;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3aae2a+0,3aae2a+50,454545+50,454545+50 */
+    background: #3aae2a; /* Old browsers */
+    background: -moz-linear-gradient(top, #3aae2a 0%, #3aae2a 50%, #454545 50%, #454545 50%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #3aae2a 0%,#3aae2a 50%,#454545 50%,#454545 50%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #3aae2a 0%,#3aae2a 50%,#454545 50%,#454545 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3aae2a', endColorstr='#454545',GradientType=0 ); /* IE6-9 */
+    transform: translateX(100%);
+    right: 0;
+    @media #{$allPhones} {
+//        height: 100%;
+        overflow-y: scroll;
+    }
+    h2 {
+        font-family: $roboto;
+        font-size: 42px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        line-height: initial;
+        @media #{$allPhones} {
+            font-size: 32px;
+        }
+    }
+    p {
+        max-width: 600px;
+        display: block;
+        margin: 0 auto;
+        font-family: $roboto;
+        color: #ffffff;
+        text-align: center;
+        line-height: 24px;
+        font-size: 18px;
+        width: 90%;
+        margin-bottom: 20px;
+        @media #{$allPhones} {
+            font-size: 14px;
+        }
+    }
+    .slider-wrapper {
+        width: 80%;
+        max-width: 800px;
+        margin: 250px auto 100px auto;
+        @media #{$allPhones} {
+            margin: 450px auto 50px auto;
+        }
+    }
+    .slider-labels {
+        width: 100%;
+        @media #{$allPhones} { 
+            width: 75%;
+        }
+        position: relative;
+        top: -250px;
+        @media #{$allPhones} {
+            top: -250px;
+            position: absolute;
+        }
+        .terrible,
+        .bad,
+        .average,
+        .good,
+        .excellent {
+            position: absolute;
+            width: 25%;
+            text-align: center;
+            min-height: 180px;
+            @media #{$allPhones} {
+                width: 20%;
+            }
+            span {
+                position: relative;
+                left: -50%;
+                top: 30px;
+            }
+            img {
+                left: -25%;
+                position: absolute;
+                max-width: 100px;
+                bottom:0;
+                display:block;
+                cursor: pointer;
+                transition: all cubic-bezier(0, 1.29, 0.68, 1.38) .25s;
+                text-align: center;
+                &:hover {
+                    transform: scale(1.05);
+                }
+                @media #{$allPhones} {
+                    max-width: 50px;
+                }
+            }
+            
+            font-family: $roboto;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            @media #{$allPhones} {
+                font-size: 10px;
+            }
+        }
+        .terrible {
+            left: 0;
+        }
+        .bad {
+            left: 26%;
+        }
+        .average {
+            left: 51%;
+        }
+        .good {
+            left: 76%;
+        }
+        .excellent {
+            left: 100%;
+        }
+    }
+    img {
+        max-width: 100%;
+    }
+    .icon {
+        text-align: center;
+        img {
+            max-width: 115px;
+            display: inline-block;
+        }
+    }
+    .text-wrapper {
+        @media #{$allPhones} {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            height: 50%;
+        }
+    }
+}
+
+.noUi-handle {
+    transition: all cubic-bezier(0, 1.29, 0.68, 1.38) .25s;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+#progressBar {
+    position: fixed;
+    background-color: #ffffff;
+    height: 10px;
+    bottom: 0;
+    transition: all ease .5s;
+}
+
+#previousQuestion {
+    position: fixed;
+    display: block;
+    font-family: $roboto;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all ease .5s;
+    left: 10px;
+    font-size: 30px;
+    transform: translateY(-35px);
+    top: 0;
+    span {
+        vertical-align: middle;
+    }
+    .plus {
+        height: 22px;
+        width: 22px;
+        vertical-align: middle;
+        padding-right: 10px;
+    }
+}
+
+.previousQuestion {
+    display: block;
+    text-align: center;
+    width: 95%;
+    margin: 0 auto;
+    div {
+        display: inline-block;
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: center;
+        cursor: pointer;
+        font-family: $roboto;
+        color: #ffffff;
+        text-transform: uppercase;
+        span {
+            vertical-align: middle;
+        }
+        .plus {
+            height: 22px;
+            width: 22px;
+            vertical-align: middle;
+            padding-right: 10px;
+        }
+        transition: all ease .5s;
+        &:hover {
+            opacity: .5;
+            transform: translateX(-10px);
+        }
+    }
+}
+
+#previousQuestion:hover {
+    opacity: .9;
+    left: 15px;
+}
+
+.slider-instructions {
+    p {
+        color: #ffffff;
+        font-weight: 800;
+    }
+}

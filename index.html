@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Premier Inc.</title>
+    <link rel="stylesheet" href="main.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="./assets/js/vendors.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">    
+</head>
+
+<body>
+    <div class="noHorizontal">
+        <div class="panel">
+            <div class="vert-center">
+                <h2>Oops!</h2>
+                <p>This site doesn't work too well in landscape.
+                    <br/> Please try rotating your phone.</p>
+            </div>
+        </div>
+    </div>
+    <div id="intro">
+        <div class="panel" id="panel1">
+            <div class="vert-center panel1">
+                <div class="logo">
+                    <img src="./assets/img/pinc-logo-white.svg" alt="Premier Inc." />
+                </div>
+                <div class="sticky">
+                    <p>Oh Good, you’ve found our note!</p>
+                    <p>Now let’s get started finding some money.</p>
+                    
+                </div>
+                <p>Begin evaluating your operational maturity.</p>
+                <a class="down" href="#panel2"><img src="./assets/img/down.svg" alt="" /></a> 
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="panel" id="panel2">
+            <div class="vert-center">
+                <div class="panel2">
+                    <h2>To get started, please fill out the form below.</h2>
+                    <div class="name">
+                        <input type="text" id="gsName">
+                        <span>Name</span>
+                    </div>
+                    <div class="email" id="gsEmailHolder">
+                        <input type="text" id="gsEmail">
+                        <span id="gsEmailLabel">Email</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="org">
+                        <input type="text" id="gsOrg">
+                        <span>Organization Name</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                    <button id="start">Get Started</button>
+                    
+                   
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="questions" id="questions">
+        <div class="question" id="question1">
+            <div class="vert-center">
+                <div class="text-wrapper">
+                    <h2 id="question1Title">Supply Chain Technology</h2>
+                    <p>High maturity is achieved when suppliers’ contract data easily transfers to an organization’s operational system and eliminates defects throughout the procurement-to-payment process.</p>
+                    <p>How do you rate your organization’s supply chain maturity?</p>
+                </div>
+                <div class="slider-wrapper">
+                    <div id="Qslider1"></div>
+                    <div class="slider-labels">
+                        <div data-moneyval="1" id="q1Option1" class="terrible money_stack"><img src="./assets/img/stack1.svg" alt="" /></div>
+                        <div data-moneyval="2" id="q1Option2" class="bad money_stack"><img src="./assets/img/stack2.svg" alt=""></div>
+                        <div data-moneyval="3" id="q1Option3" class="average money_stack"><img src="./assets/img/stack3.svg" alt=""></div>
+                        <div data-moneyval="4" id="q1Option4" class="good money_stack"><img src="./assets/img/stack4.svg" alt=""></div>
+                        <div data-moneyval="5" id="q1Option5" class="excellent money_stack"><img src="./assets/img/stack5.svg" alt=""></div>
+                    </div>
+                </div>
+                <div class="slider-instructions">
+                    <p>(drag the coin to the left or right)</p>
+                </div>
+                <button id="question1Next">Next</button>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            <div class="vert-center">
+                <div class="text-wrapper">
+                    <h2>High Value Care</h2>
+                    <p>Healthcare organizations strive to deliver high quality care at the lowest possible price. </p>
+                    <p>How do you rate your organization’s ability to deliver high value, cost effective care?</p>
+                </div>
+                <div class="slider-wrapper">
+                    <div id="Qslider2"></div>
+                    <div class="slider-labels">
+                        <div data-moneyval="1" id="q2Option1" class="terrible money_stack"><img src="./assets/img/stack1.svg" alt="" /></div>
+                        <div data-moneyval="2" id="q2Option2" class="bad money_stack"><img src="./assets/img/stack2.svg" alt=""></div>
+                        <div data-moneyval="3" id="q2Option3" class="average money_stack"><img src="./assets/img/stack3.svg" alt=""></div>
+                        <div data-moneyval="4" id="q2Option4" class="good money_stack"><img src="./assets/img/stack4.svg" alt=""></div>
+                        <div data-moneyval="5" id="q2Option5" class="excellent money_stack"><img src="./assets/img/stack5.svg" alt=""></div>
+                    </div>
+                </div>
+                <button id="question2Next">Next</button>
+                <div class="previousQuestion">
+                    <div>
+                        <img class="plus" src="./assets/img/back.svg" alt=""><span>Go Back a Question</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="question" id="question3">
+            <div class="vert-center">
+                <div class="text-wrapper">
+                    <h2>Financial Management</h2>
+                    <p>High maturity occurs when processes and technology enable your department leaders to function as business owners with good financial literacy.</p>
+                    <p>How would you rate your organization’s financial management maturity?</p>
+                </div>
+                <div class="slider-wrapper">
+                    <div id="Qslider3"></div>
+                    <div class="slider-labels">
+                        <div data-moneyval="1" id="q3Option1" class="terrible money_stack"><img src="./assets/img/stack1.svg" alt="" /></div>
+                        <div data-moneyval="2" id="q3Option2" class="bad money_stack"><img src="./assets/img/stack2.svg" alt=""></div>
+                        <div data-moneyval="3" id="q3Option3" class="average money_stack"><img src="./assets/img/stack3.svg" alt=""></div>
+                        <div data-moneyval="4" id="q3Option4" class="good money_stack"><img src="./assets/img/stack4.svg" alt=""></div>
+                        <div data-moneyval="5" id="q3Option5" class="excellent money_stack"><img src="./assets/img/stack5.svg" alt=""></div>
+                    </div>
+                </div>
+                <button id="question3Next">Next</button>
+                <div class="previousQuestion">
+                    <div>
+                        <img class="plus" src="./assets/img/back.svg" alt=""><span>Go Back a Question</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="question" id="question4">
+            <div class="vert-center">
+                <div class="text-wrapper">
+                    <h2>Labor Management</h2>
+                    <p>High maturity means knowing how to effectively achieve high performance from personnel and favorable financial outcomes for your institution.  It measures productivity and benchmarks performance to understand where improvement opportunities exist.</p>
+                    <p>How would you rate your organization’s labor management maturity?</p>
+                </div>
+                <div class="slider-wrapper">
+                    <div id="Qslider4"></div>
+                    <div class="slider-labels">
+                        <div data-moneyval="1" id="q4Option1" class="terrible money_stack"><img src="./assets/img/stack1.svg" alt="" /></div>
+                        <div data-moneyval="2" id="q4Option2" class="bad money_stack"><img src="./assets/img/stack2.svg" alt=""></div>
+                        <div data-moneyval="3" id="q4Option3" class="average money_stack"><img src="./assets/img/stack3.svg" alt=""></div>
+                        <div data-moneyval="4" id="q4Option4" class="good money_stack"><img src="./assets/img/stack4.svg" alt=""></div>
+                        <div data-moneyval="5" id="q4Option5" class="excellent money_stack"><img src="./assets/img/stack5.svg" alt=""></div>
+                    </div>
+                </div>
+                <button id="question4Next">Next</button>
+                <div class="previousQuestion">
+                    <div>
+                        <img class="plus" src="./assets/img/back.svg" alt=""><span>Go Back a Question</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="question" id="question5">
+            <div class="vert-center">
+               <div class="text-wrapper">
+                     <h2>Industry Best Practices</h2>
+                    <p>High performing healthcare organizations constantly strive to improve their processes through industry best practices.</p>
+                    <p>How would you rate your organization’s commitment to process improvement?</p>
+                </div>
+                <div class="slider-wrapper">
+                    <div id="Qslider5"></div>
+                    <div class="slider-labels">
+                        <div data-moneyval="1" id="q5Option1" class="terrible money_stack"><img src="./assets/img/stack1.svg" alt="" /></div>
+                        <div data-moneyval="2" id="q5Option2" class="bad money_stack"><img src="./assets/img/stack2.svg" alt=""></div>
+                        <div data-moneyval="3" id="q5Option3" class="average money_stack"><img src="./assets/img/stack3.svg" alt=""></div>
+                        <div data-moneyval="4" id="q5Option4" class="good money_stack"><img src="./assets/img/stack4.svg" alt=""></div>
+                        <div data-moneyval="5" id="q5Option5" class="excellent money_stack"><img src="./assets/img/stack5.svg" alt=""></div>
+                    </div>
+                </div>
+                <script src="//app-ab03.marketo.com/js/forms2/js/forms2.min.js"></script>
+<form id="mktoForm_1256"></form>
+<script>MktoForms2.loadForm("//app-ab03.marketo.com", "381-NBB-525", 1256);</script>
+                <button id="question5Finish">Finish</button>
+                <div class="previousQuestion">
+                    <div>
+                        <img class="plus" src="./assets/img/back.svg" alt=""><span>Go Back a Question</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="progressBar"></div>
+    </div>
+    <div class="shareValidation" id="shareValidation">
+        <div class="panel">
+            <div class="vert-center">
+                <h2>Thank You.</h2>
+                <p>Forward this assessment to three colleagues in your organization before you receive your scorecard.</p>
+                <div class="friendListHolder" id="friendListHolder">
+                    <div class="friendSection" id="friend1">
+                        <div class="friendNameHolder" id="friendNameHolder1">
+                            <input type="text" name="friendName1" id="friendName1">
+                            <span id="friendNameLabel1">Name</span>
+                        </div>
+                        <div class="friendEmailHolder" id="friendEmailHolder1">
+                            <input type="text" name="friendEmail1" id="friendEmail1">
+                            <span id="friendEmailLabel1">Email</span>
+                        </div>
+                    </div>
+                    <div class="friendSection" id="friend2">
+                        <div class="friendNameHolder" id="friendNameHolder2">
+                            <input type="text" name="friendName2" id="friendName2">
+                            <span id="friendNameLabel2">Name</span>
+                        </div>
+                        <div class="friendEmailHolder" id="friendEmailHolder2">
+                            <input type="text" name="friendEmail2" id="friendEmail2">
+                            <span id="friendEmailLabel2">Email</span>
+                        </div>
+                    </div>
+                    <div class="friendSection" id="friend3">
+                        <div class="friendNameHolder" id="friendNameHolder3">
+                            <input type="text" name="friendName3" id="friendName3">
+                            <span id="friendNameLabel3">Name</span>
+                        </div>
+                        <div class="friendEmailHolder" id="friendEmailHolder3">
+                            <input type="text" name="friendEmail3" id="friendEmail3">
+                            <span id="friendEmailLabel3">Email</span>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <button id="friendSubmit">Send</button>
+                <span id="optOut" class="optOut">I don't want to send this to my colleages.</span>
+            </div>
+        </div>
+    </div>
+    <div class="scorecard" id="scoreCard">
+        <div class="logo">
+            <img src="./assets/img/pinc-logo-white.svg" alt="Premier Inc." />
+        </div>
+        <h3>Thank You</h3>
+        <p>We look forward to reviewing your scorecard and finding out how you compare to your national peers at our meeting soon.</p>
+        <p>A copy of the score card has been sent to the email address you provided initially.</p>
+        <h3>Your Opportunity Scorecard</h3>
+        <div class="card">
+            <div class="row">
+                <h3>Supply Chain Technology</h3>
+                <div class="score" id="govCircle"><span id="govNumber">X</span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="row">
+                <h3>High Value Care</h3>
+                <div class="score" id="careCircle"><span id="careNumber">X</span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="row">
+                <h3>Financial Management</h3>
+                <div class="score" id="efficiencyCircle"><span id="efficiencyNumber">X</span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="row">
+                <h3>Labor Management</h3>
+                <div class="score" id="qaCircle"><span id="qaNumber">X</span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="row">
+                <h3>Industry Best Practices</h3>
+                <div class="score" id="itCircle"><span id="itNumber">X</span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="row">
+                <h3 class="overallScore">Overall Score</h3>
+                <div class="score" id="overallCircle"><span id="overallNumber">X</span></div>
+            </div>
+        </div>
+        <div class="emailThankYou">
+            <h3>Thank You</h3>
+            <p>Your email has been sent. If you do not recieve it soon, please check your spam folder.</p>
+        </div>
+    </div>
+     <script src="./assets/js/custom.min.js"></script>
+    <script>
+        var slider1 = document.getElementById('Qslider1');
+        noUiSlider.create(slider1, {
+            step: 1,
+            connect: 'lower',
+            start: 3,
+            range: {
+                'min': 1,
+                'max': 5
+            },
+            format: wNumb({
+                decimals: 0
+            })
+        });
+        var slider2 = document.getElementById('Qslider2');
+        noUiSlider.create(slider2, {
+            step: 1,
+            connect: 'lower',
+            start: 3,
+            range: {
+                'min': 1,
+                'max': 5
+            },
+            format: wNumb({
+                decimals: 0
+            })
+        });
+        var slider3 = document.getElementById('Qslider3');
+        noUiSlider.create(slider3, {
+            step: 1,
+            connect: 'lower',
+            start: 3,
+            range: {
+                'min': 1,
+                'max': 5
+            },
+            format: wNumb({
+                decimals: 0
+            })
+        });
+        var slider4 = document.getElementById('Qslider4');
+        noUiSlider.create(slider4, {
+            step: 1,
+            connect: 'lower',
+            start: 3,
+            range: {
+                'min': 1,
+                'max': 5
+            },
+            format: wNumb({
+                decimals: 0
+            })
+        });
+        var slider5 = document.getElementById('Qslider5');
+        noUiSlider.create(slider5, {
+            step: 1,
+            connect: 'lower',
+            start: 3,
+            range: {
+                'min': 1,
+                'max': 5
+            },
+            format: wNumb({
+                decimals: 0
+            })
+        });
+    </script>
+   
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+.shareValidation {
+//    transition: all ease .5s;
+    transform: translateX(100%);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    @media #{$allPhones} {
+        display: none;
+        overflow-y: scroll;
+        height: 100%;
+    }
+    .optOut {
+        display: block;
+        margin: 0 auto;
+        max-width: 600px;
+        width: 95%;
+        color: #ffffff;
+        font-family: $roboto;
+        font-size: 12px;
+        text-align: center;
+        cursor: pointer;
+        transition: all ease .5s;
+        &:hover {
+            opacity: .5;
+        }
+    }
+    h2 {
+        font-family: $roboto;
+        color: #ffffff;
+        font-size: 36px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    p {
+        font-family: $roboto;
+        font-size: 24px;
+        line-height: 30px;
+        display: block;
+        width: 95%;
+        max-width: 600px;
+        margin: 0 auto;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .friendListHolder {
+        width: 95%;
+        max-width: 800px;
+        margin: 0 auto;
+        .friendSection {
+            margin-bottom: 60px;
+            //            padding-bottom: 50px;
+            //            border-bottom: 3px solid #439fba;
+            &:after {
+                clear: both;
+                display: block;
+                content: '';
+            }
+            &:last-of-type {
+                border-bottom: 0;
+                padding-bottom: 0;
+            }
+        }
+        .friendNameHolder,
+        .friendEmailHolder {
+            width: 48%;
+            max-width: 600px;
+            margin: 0 auto;
+            input {
+                display: block;
+                width: 100%;
+                margin: 0px auto;
+                max-width: 600px;
+                box-sizing: border-box;
+                font-size: 18px;
+                outline: none;
+                border: 0px;
+                background-color: rgba(255,255,255, 0);
+                color: #ffffff;
+                font-family: $roboto;
+                border-bottom: 3px solid #ffffff;
+                padding-bottom: 10px;
+                backface-visibility: hidden;
+                transition: all ease .5s;
+            }
+            span {
+                margin-top: 10px;
+                color: #ffffff;
+                display: block;
+                font-family: $roboto;
+                transition: all ease .5s;
+            }
+        }
+        .friendNameHolder {
+            float: left;
+        }
+        .friendEmailHolder {
+            float: right;
+            &:after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        }
+        &:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+    }
+}

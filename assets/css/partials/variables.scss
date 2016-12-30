@@ -1,0 +1,52 @@
+$premierBlue: #46a7c4;
+$premierLightBlue: #86cbcc;
+$helvetica: 'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif;
+$roboto: 'Roboto Condensed',
+sans-serif;
+$roboto_bold: 'Roboto Condensed Bold', sans-serif;
+//Media Query Variables
+$iphone4: 'only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)';
+$iphone5: 'only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2)';
+$iphone6: 'only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2)';
+$iphone6P: 'only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3)';
+$galaxyS3: 'screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2)';
+$galaxyS4: 'screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3)';
+$galaxyS5: 'screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3)';
+$allPhones: $iphone4,
+$iphone5,
+$iphone6,
+$iphone6P,
+$galaxyS3,
+$galaxyS4,
+$galaxyS5;
+$iphone4H: 'only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)';
+$iphone5H: 'only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)';
+$iphone6H: 'only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)';
+$iphone6PH: 'only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape)';
+$galaxyS3H: 'screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)';
+$galaxyS4H: 'screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)';
+$galaxyS5H: 'screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)';
+$allPhonesH: $iphone4H,
+$iphone5H,
+$iphone6H,
+$iphone6PH,
+$galaxyS3H,
+$galaxyS4H,
+$galaxyS5H;
+$ipadMini: 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)';
+$ipad1-2: 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)';
+$ipad3-4: 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2)';
+$galaxyTab: '(min-device-width: 800px) and (max-device-width: 1280px)';
+$nexus7: 'screen and (device-width: 601px) and (device-height: 906px) and (-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332)';
+$kindleFire7: 'only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5)';
+$kindleFire8: 'only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1.5)';
+$allTablets: $ipadMini,
+$ipad1-2,
+$ipad3-4,
+$galaxyTab,
+$nexus7,
+$kindleFire7,
+$kindleFire8;
