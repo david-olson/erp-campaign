@@ -1,4 +1,4 @@
-# enterprise-growth
+# erp-campaign
 
 This is the repo for the ERP campaign with Premier Inc.
 
