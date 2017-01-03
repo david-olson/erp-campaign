@@ -224,4 +224,11 @@ h2 {
         color: #000;
         margin-bottom: 30px;
     }
+    @media #{$allPhones} {
+        width: 65%;
+        p {
+            font-size: 24px;
+            line-height: 30px;
+        }
+    }
 }

@@ -168,53 +168,6 @@ $(document).ready(function () {
 
     });
 
-    //Finishes the quiz and fades in the Peer Validation
-
-    document.getElementById('question5Finish').addEventListener('click', function () {
-        var shareValidation = document.getElementById('shareValidation'),
-            questions = document.getElementById('questions');
-
-        //        TweenLite.to(question5, .33, {x: '-100%'});
-
-        TweenLite.to(questions, .33, {
-            opacity: 0
-        });
-
-        shareValidation.style.display = 'block';
-
-        //Sets the values on the score card based on the user's selections
-        setValues();
-
-        setTimeout(function () {
-            TweenLite.to(shareValidation, .33, {
-                x: '0%'
-            });
-            document.getElementById('questions').style.display = 'none';
-        }, 500);
-    });
-
-    //Fires the Send to Friends function when clicked and slides the panel out to the left. Fades in the score card.
-
-    document.getElementById('friendSubmit').addEventListener('click', sendFriends);
-
-    //When Opt Out is clicked, email sending is skipped and score card fades in
-
-    document.getElementById('optOut').addEventListener('click', function () {
-        var shareValidate = document.getElementById('shareValidation'),
-            scoreCard = document.getElementById('scoreCard');
-        TweenLite.to(shareValidate, .33, {
-            x: '-100%'
-        });
-        scoreCard.style.opacity = 0;
-        setTimeout(function () {
-            shareValidate.style.display = 'none';
-            scoreCard.style.display = 'block';
-            TweenLite.to(scoreCard, .5, {
-                opacity: 1
-            });
-        }, 500);
-    });
-
     //Fires the Email Submit function when the submit button is clicked
 
     //    document.getElementById('emailSubmit').addEventListener('click', function() {
@@ -231,26 +184,6 @@ $(document).ready(function () {
         document.getElementById('gsEmail').style.borderBottomColor = '#ffffff';
         document.getElementById('gsEmail').style.color = '#ffffff';
         document.getElementById('gsEmailLabel').style.color = '#ffffff';
-    });
-
-    //Fades the Friend Email input fields to default. Used with Email Error
-
-    document.getElementById('friendEmail1').addEventListener('focusin', function () {
-        document.getElementById('friendEmail1').style.borderBottomColor = '#ffffff';
-        document.getElementById('friendEmail1').style.color = '#ffffff';
-        document.getElementById('friendEmailLabel1').style.color = '#ffffff';
-    });
-
-    document.getElementById('friendEmail2').addEventListener('focusin', function () {
-        document.getElementById('friendEmail2').style.borderBottomColor = '#ffffff';
-        document.getElementById('friendEmail2').style.color = '#ffffff';
-        document.getElementById('friendEmailLabel2').style.color = "#ffffff";
-    });
-
-    document.getElementById('friendEmail3').addEventListener('focusin', function () {
-        document.getElementById('friendEmail3').style.borderBottomColor = '#ffffff';
-        document.getElementById('friendEmail3').style.color = '#ffffff';
-        document.getElementById('friendEmailLabel3').style.color = '#ffffff';
     });
 
     slider5.noUiSlider.on('set', function () {
@@ -289,41 +222,44 @@ function getStarted() {
     mktoEmail[0].value = gsEmail;
     mktoComp[0].value = gsOrg;
 
-    if (validateEmail(gsEmail) === false) {
-        var l = 20,
-            gsEmailHolder = document.getElementById('gsEmailHolder');
-
-        gsEmailHolder.className += ' loginShake';
-
-        setTimeout(function () {
-            gsEmailHolder.classList.remove('loginShake');
-        }, 1000)
-
-        var gsEmail = document.getElementById('gsEmail'),
-            gsEmailLabel = document.getElementById('gsEmailLabel');
-
-        gsEmail.style.borderBottomColor = '#ffb2b2';
-        gsEmail.style.color = '#ffb2b2';
-        gsEmailLabel.style.color = '#ffb2b2';
-
-        return false;
-    }
+    //    if (validateEmail(gsEmail) === false) {
+    //        var l = 20,
+    //            gsEmailHolder = document.getElementById('gsEmailHolder');
+    //
+    //        gsEmailHolder.className += ' loginShake';
+    //
+    //        setTimeout(function () {
+    //            gsEmailHolder.classList.remove('loginShake');
+    //        }, 1000)
+    //
+    //        var gsEmail = document.getElementById('gsEmail'),
+    //            gsEmailLabel = document.getElementById('gsEmailLabel');
+    //
+    //        gsEmail.style.borderBottomColor = '#ffb2b2';
+    //        gsEmail.style.color = '#ffb2b2';
+    //        gsEmailLabel.style.color = '#ffb2b2';
+    //
+    //        return false;
+    //    }
 
     setTimeout(function () {
         var question1 = document.getElementById('question1');
-            
+
 
         TweenLite.to(question1, .33, {
             css: {
                 x: 'translateX(0%)'
             }
         });
-//        resizeQuestion();
+        //        resizeQuestion();
     }, 600);
 
     //Fades out the into and slides Question 1 in from the far right
 
     $('#intro').fadeOut(400);
+    $('.questions').css({
+        display: 'block'
+    });
     //Sets the value of the question. Used for keeping track of what question has been answered for simple navigation
     theQuestion = 1;
     //Sets the progress bar along the bottom of the screen
@@ -390,6 +326,11 @@ function resizeDiv() {
         for (var i = 0; i < panel.length; i++) {
             panel[i].style.height = vph + 'px';
         }
+    } else {
+        var panel = document.getElementsByClassName('panel');
+        for (var i = 0; i < panel.length; i++) {
+            panel[i].style.height = 900 + 'px';
+        }
     }
 }
 
@@ -406,9 +347,17 @@ function resizeQuestion() {
     questionW = window.outerWidth;
 
     //Sets all elements with the class "question" to full height and width
-    $('.question').css({
-        'height': questionH + 'px'
-    });
+    if (questionH >= 900) {
+        $('.question').css({
+            'height': questionH + 'px',
+            'position': 'fixed'
+        });
+    } else {
+//        $('.question').css({
+//            'height': 900 + 'px',
+////            'position': 'absolute'
+//        });
+    }
 }
 //Used to set the values on the score card
 function setValues() {
@@ -584,102 +533,4 @@ function emailError() {
     $('#emailCopyLabel').css({
         'color': '#ffb2b2'
     });
-}
-//Sends an invitation email to user specified email addresses 
-function sendFriends() {
-    //sets the variable of the value entered in the field friendName1
-    var friendName1 = $('#friendName1').val();
-    //sets the variable of the value entered in the field friendEmail1
-    var friendEmail1 = $('#friendEmail1').val();
-    //Sets the query string to be sent to friends.php
-    var friendFormData = 'name1=' + friendName1 + '&email1=' + friendEmail1;
-    //Validates email. Sets the field to red if there is an error
-    if (validateEmail(friendEmail1) === false) {
-        var l = 20;
-        for (var i = 0; i < 10; i++) {
-            $('#friendEmailHolder1').animate({
-                'margin-left': '+=' + (l = -l) + 'px',
-                'margin-right': '-=' + l + 'px'
-            }, 70);
-        }
-        $('#friendEmail1').css({
-            'border-bottom-color': '#ffb2b2',
-            'color': '#ffb2b2'
-        });
-        $('#friendEmailLabel1').css({
-            'color': '#ffb2b2'
-        });
-        //Stops the whole function from sending to friends.php
-        return false;
-    }
-
-    //First checks if friend2 has been created
-    if ($('#friend2').length) {
-        //Sets the variables from the friend2 input fields
-        var friendName2 = $('#friendName2').val();
-        var friendEmail2 = $('#friendEmail2').val();
-        //Validates the email. Sets field to red if there is an error
-        if (validateEmail(friendEmail2) === false) {
-            var l = 20;
-            for (var i = 0; i < 10; i++) {
-                $('#friendEmailHolder2').animate({
-                    'margin-left': '+=' + (l = -l) + 'px',
-                    'margin-right': '-=' + l + 'px'
-                }, 70);
-            }
-            $('#friendEmail2').css({
-                'border-bottom-color': '#ffb2b2',
-                'color': '#ffb2b2'
-            });
-            $('#friendEmailLabel2').css({
-                'color': '#ffb2b2'
-            });
-            return false;
-        }
-        //Adds friend2 data to the query string going to friends.php
-        friendFormData += '&name2=' + friendName2 + '&email2=' + friendEmail2;
-    }
-    //Checks if friend3 has been created
-    if ($('#friend3').length) {
-        //Sets the variables from the friend3 input fields
-        var friendName3 = $('#friendName3').val();
-        var friendEmail3 = $('#friendEmail3').val();
-        //Validates the email. Sets field to red if there is an error
-        if (validateEmail(friendEmail3) === false) {
-            var l = 20;
-            for (var i = 0; i < 10; i++) {
-                $('#friendEmailHolder3').animate({
-                    'margin-left': '+=' + (l = -l) + 'px',
-                    'margin-right': '-=' + l + 'px'
-                }, 70);
-            }
-            $('#friendEmail3').css({
-                'border-bottom-color': '#ffb2b2',
-                'color': '#ffb2b2'
-            });
-            $('#friendEmailLabel3').css({
-                'color': '#ffb2b2'
-            });
-            return false;
-        }
-        //Adds friend3 data to the query sting going to friends.php
-        friendFormData += '&name3=' + friendName3 + '&email3=' + friendEmail3;
-    }
-    //Makes the ajax call to send the emails
-    $.ajax({
-        type: 'POST',
-        url: 'friends.php',
-        data: friendFormData,
-        cache: false,
-        success: function () {
-            //Slides up the fields and button
-            $('#shareValidation').css({
-                'transform': 'translateX(-100%)'
-            });
-            //Score Card fades in
-            $('#shareValidation').delay(500).fadeOut(400, function () {
-                $('#scoreCard').fadeIn(400);
-            });
-        }
-    })
 }

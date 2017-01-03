@@ -158,22 +158,46 @@ button {
     transition: all ease .5s;
     opacity: 0;
 }
+
+.questions {
+    display: none;
+}
+
+
+
+@media #{$allPhones} {
+    .questions {
+//        height: 500px !important;
+        overflow-y: scroll;
+    }
+}
+
 .question {
     position: fixed;
     top: 0;
     width: 100%;
-//    background-color: $premierLightBlue;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3aae2a+0,3aae2a+50,454545+50,454545+50 */
-    background: #3aae2a; /* Old browsers */
-    background: -moz-linear-gradient(top, #3aae2a 0%, #3aae2a 50%, #454545 50%, #454545 50%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #3aae2a 0%,#3aae2a 50%,#454545 50%,#454545 50%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #3aae2a 0%,#3aae2a 50%,#454545 50%,#454545 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3aae2a', endColorstr='#454545',GradientType=0 ); /* IE6-9 */
+    
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3aae2a+0,3aae2a+50,454545+50,454545+50&0+0,0+50,1+51,1+100 */
+//background: -moz-linear-gradient(top,  rgba(58,174,42,0) 0%, rgba(69,69,69,0) 49.9%, rgba(69,69,69,1) 50%, rgba(69,69,69,1) 100%); /* FF3.6-15 */
+//background: -webkit-linear-gradient(top,  rgba(58,174,42,0) 0%,rgba(69,69,69,0) 49.9%,rgba(69,69,69,1) 50%,rgba(69,69,69,1) 100%); /* Chrome10-25,Safari5.1-6 */
+//background: linear-gradient(to bottom,  rgba(58,174,42,0) 0%,rgba(69,69,69,0) 49.9%,rgba(69,69,69,1) 50%,rgba(69,69,69,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003aae2a', endColorstr='#454545',GradientType=0 ); /* IE6-9 */
+    
     transform: translateX(100%);
     right: 0;
-    @media #{$allPhones} {
-//        height: 100%;
-        overflow-y: scroll;
+    background-size: cover;
+    &:before {
+        display: block;
+        background-color: #333333;
+        height: 47%;
+        content: '';
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        z-index: -1;
+        @media #{$allPhones} {
+            height: 50%;
+        }
     }
     h2 {
         font-family: $roboto;
@@ -187,18 +211,19 @@ button {
         }
     }
     p {
-        max-width: 600px;
+        max-width: 700px;
         display: block;
         margin: 0 auto;
         font-family: $roboto;
         color: #ffffff;
         text-align: center;
-        line-height: 24px;
-        font-size: 18px;
+        line-height: 32px;
+        font-size: 24px;
         width: 90%;
         margin-bottom: 20px;
         @media #{$allPhones} {
             font-size: 14px;
+            line-height: 18px;
         }
     }
     .slider-wrapper {
@@ -206,19 +231,19 @@ button {
         max-width: 800px;
         margin: 250px auto 100px auto;
         @media #{$allPhones} {
-            margin: 450px auto 50px auto;
+            margin: 150px auto 50px auto;
         }
     }
     .slider-labels {
         width: 100%;
         @media #{$allPhones} { 
-            width: 75%;
+            width: 95%;
+            margin-left: -5px;
         }
         position: relative;
         top: -250px;
         @media #{$allPhones} {
-            top: -250px;
-            position: absolute;
+            top: -150px;
         }
         .terrible,
         .bad,
@@ -231,6 +256,7 @@ button {
             min-height: 180px;
             @media #{$allPhones} {
                 width: 20%;
+                min-height: 100px;
             }
             span {
                 position: relative;
@@ -292,18 +318,62 @@ button {
     }
     .text-wrapper {
         @media #{$allPhones} {
-            position: fixed;
-            top: 20px;
-            width: 100%;
-            height: 50%;
         }
     }
+}
+
+@media only screen and (max-height: 900px) {
+    .questions {
+        height: 900px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 100%;
+        position: relative;
+    }
+    .question {
+        position: absolute !important;
+    }
+}
+
+@media #{$iphone5} {
+    .question {
+        height: 640px;
+    }
+    .questions {
+        height: 640px;
+        h2 {
+            margin-top: 20px;
+        }
+    }
+}
+
+#question1 {
+    background-image: url('./assets/img/SupplyChaintech_Green.png');
+}
+
+#question2 {
+    background-image: url('./assets/img/HighValueCare_Green.png');
+}
+#question3 {
+    background-image: url('./assets/img/FinancialMgmt_Green.png');
+}
+#question4 {
+    background-image: url('./assets/img/Labor_Green.png');
+}
+#question5 {
+    background-image: url('./assets/img/BestPractices_Green.png');
 }
 
 .noUi-handle {
     transition: all cubic-bezier(0, 1.29, 0.68, 1.38) .25s;
     &:hover {
         transform: scale(1.05);
+    }
+    @media #{$allPhones} {
+        width: 50px !important;
+        height: 50px !important;
+        top: -23px !important;
+        left: -22px !important;
     }
 }
 
@@ -379,5 +449,47 @@ button {
     p {
         color: #ffffff;
         font-weight: 800;
+    }
+}
+
+.mktoForm {
+    width: 100% !important;
+}
+
+.mktoButtonRow {
+    display: block;
+    width: 100% !important;
+    span {
+        margin-left: 0;
+        button {
+            display: block;
+            max-width: 600px;
+            width: 95% !important;
+            margin: 0 auto 50px auto !important;
+            backface-visibility: hidden !important;
+            padding: 20px !important;
+            background-color: #fff !important;
+            color: #3aae2a !important;
+            text-align: center !important;
+            font-family: $roboto !important;
+            text-transform: uppercase !important;
+            font-weight: 700 !important;
+            text-decoration: none !important;
+            font-size: 24px !important;
+            transition: all ease-out .2s !important;
+            box-sizing: border-box !important;
+            border: 0 !important;
+            border-bottom: 5px solid rgba(0, 0, 0, 0.1) !important;
+            cursor: pointer !important;
+            outline: none !important;
+            border-radius: 0 !important;
+            &:hover,
+            &:focus {
+                background-color: #eaeaea !important;
+            }
+            &:active {
+                transform: scale(.99) !important;
+            }
+        }
     }
 }
