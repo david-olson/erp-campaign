@@ -1,17 +1,45 @@
-//@font-face {
-//    font-family: 'Roboto Condensed Bold';
-//    src: url('../fonts/robotocondensed-bold-webfont.woff2') format('woff2'),
-//         url('../fonts/robotocondensed-bold-webfont.woff') format('woff');
-//    font-weight: normal;
-//    font-style: normal;
-//
-//}
-//
-//@font-face {
-//    font-family: 'Roboto Condensed';
-//    src: url('../fonts/robotocondensed-regular-webfont.woff2') format('woff2'),
-//         url('../fonts/robotocondensed-regular-webfont.woff') format('woff');
-//    font-weight: normal;
-//    font-style: normal;
-//
-//}
+body,
+button,
+input,
+label {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+html {
+    font-size: calc(1em + 1vw);
+}
+
+@media screen and (min-width: 50em) {
+    html {
+        font-size: 1.65em;
+    }
+}
+
+h1 {
+    font-size: 1.602rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.424rem;
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-size: 1.266rem;
+}
+
+h4 {
+    font-size: 1.125rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+button {
+    font-size: .75rem;
+}

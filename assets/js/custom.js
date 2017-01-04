@@ -1,19 +1,159 @@
-//Run First
+window.load = main();
 
-$(document).ready(function () {
+window.onresize = function () {
+    resizeIntro();
+    resizeQuestions();
+}
 
-    function moneyStackClick(e) {
-        var value = e.id,
-            theNumber,
-            questionSlider,
-            cash;
-        theNumber = value.substr(value.length - 1);
-        questionSlider = value.charAt(1);
 
-        theNumber = parseInt(theNumber);
-        questionSlider = parseInt(questionSlider);
+function main() {
 
-        switch (questionSlider) {
+    var advanceButtons = document.getElementsByClassName('advance_button'),
+        moneyStack = document.getElementsByClassName('money_stack'),
+        backButton = document.getElementsByClassName('back_button'),
+        i;
+
+    for (i = 0; i < advanceButtons.length; i++) {
+        advanceButtons[i].addEventListener('click', function () {
+            advancePanel(this);
+        });
+    }
+    
+    for (i = 0; i < moneyStack.length; i++) {
+        moneyStack[i].addEventListener('click', function() {
+            moneyStackClick(this);
+        });
+    }
+    
+    for (i = 0; i<backButton.length; i++) {
+        backButton[i].addEventListener('click', function() {
+            reversePanel(this);
+        });
+    }
+
+    resizeIntro();
+    resizeQuestions();
+    setTimeout(function () {
+        document.getElementById('questions').style.display = 'none';
+    }, 50);
+    slider1.noUiSlider.on('set', function () {
+        var question1Next = document.getElementById('q1Next');
+
+        question1Next.style.opacity = 1;
+
+    });
+}
+
+function resizeIntro() {
+
+    var panel = document.getElementsByClassName('panel'),
+        panelContent = document.getElementsByClassName('panel_content'),
+        viewPortH = window.innerHeight,
+        panelHeight,
+        i;
+    for (i = 0; i < panel.length; i++) {
+        panel[i].style.minHeight = viewPortH + 'px';
+        if (panelHeight > viewPortH) {
+            console.log('test');
+        }
+    }
+    console.log('Panels resized to ' + viewPortH);
+    for (i = 0; i < panelContent.length; i++) {
+        panelHeight = panelContent[i].clientHeight;
+        if (panelHeight > viewPortH) {
+            panelContent[i].style.position = "static";
+            panelContent[i].style.top = "initial";
+            panelContent[i].style.transform = "initial";
+        }
+    }
+}
+
+function resizeQuestions() {
+    var theQuestions = document.getElementsByClassName('question'),
+        questionContent = document.getElementsByClassName('question_content'),
+        questionHeight,
+        viewPortH = window.innerHeight,
+        i;
+    document.getElementById('questions').style.minHeight = viewPortH + 'px';
+    for (i = 0; i < theQuestions.length; i++) {
+        theQuestions[i].style.minHeight = viewPortH + 'px';
+    }
+    for (i = 0; i < questionContent.length; i++) {
+        questionHeight = questionContent[i].clientHeight;
+        if (questionHeight > viewPortH) {
+            questionContent[i].style.position = "static";
+            questionContent[i].style.top = "initial";
+            questionContent[i].style.transform = "initial";
+        } else if (questionHeight <= viewPortH) {
+            questionContent[i].style.position = 'absolute';
+            questionContent[i].style.top = '50%';
+            questionContent[i].style.transform = 'translateY(-50%)';
+            
+        }
+    }
+}
+
+function getStarted(e) {
+    var introduction = document.getElementById('intro'),
+        questions = document.getElementById('questions');
+    $(introduction).fadeOut(350);
+    setTimeout(function () {
+        questions.style.display = 'block';
+        setTimeout(function () {
+            TweenLite.to(questions, .33, {
+                x: '0%'
+            });
+        }, 50)
+
+    }, 450)
+    return false;
+}
+
+function advancePanel(e) {
+    var element = e,
+        elementId = element.id,
+        thisQuestion = elementId.charAt(1),
+        thisQuestionId = 'question' + thisQuestion,
+        thisQuestionObject = document.getElementById(thisQuestionId),
+        nextQuestion = parseInt(thisQuestion) + 1,
+        nextQuestionId = 'question' + nextQuestion,
+        nextQuestionObject = document.getElementById(nextQuestionId);
+        TweenLite.to(thisQuestionObject, .33, {
+            x: '-100%'
+        });
+        TweenLite.to(nextQuestionObject, .33, {
+            x: '0%'
+        });
+}
+
+function reversePanel(e) {
+    var elementId = e.id,
+        thisQuestion = elementId.charAt(1),
+        thisQuestionId = 'question' + thisQuestion,
+        thisQuestionObject = document.getElementById(thisQuestionId),
+        lastQuestion = parseInt(thisQuestion) - 1,
+        lastQuestionId = 'question' + lastQuestion,
+        lastQuestionObject = document.getElementById(lastQuestionId);
+    TweenLite.to(thisQuestionObject, .33, {
+        x: '100%'
+    });
+    TweenLite.to(lastQuestionObject, .33, {
+        x: '0%'
+    });
+}
+
+function moneyStackClick(e) {
+    var value = e.id,
+        theNumber, 
+        questionSlider,
+        cash;
+    theNumber = value.substr(value.length - 1);
+    questionSlider = value.charAt(1);
+    
+    theNumber = parseInt(theNumber);
+    questionSlider = parseInt(questionSlider);
+    
+    switch (questionSlider) {
         case 1:
             slider1.noUiSlider.set(theNumber);
             break;
@@ -29,270 +169,13 @@ $(document).ready(function () {
         case 5:
             slider5.noUiSlider.set(theNumber);
             break;
-        }
-        if (theNumber === 5) {
-            cash = new Audio('http://localhost:9888/audio/money.mp3');
-            cash.play();
-        }
     }
-
-    var moneyStack = document.getElementsByClassName('money_stack');
-
-    for (var i = 0; i < moneyStack.length; i++) {
-        moneyStack[i].addEventListener('click', function () {
-            moneyStackClick(this);
-        });
+    if (theNumber === 5) {
+        cash = new Audio('./assets/audio/money.mp3');
+        cash.play();
     }
-
-    var question1 = document.getElementById('question1'),
-        question2 = document.getElementById('question2'),
-        question3 = document.getElementById('question3'),
-        question4 = document.getElementById('question4'),
-        question5 = document.getElementById('question5');
-
-    //Resizes divs with the class "panel" to be full width and heighth
-    resizeDiv();
-    //Resizes the Question panels to be full width and heighth
-    resizeQuestion();
-
-    document.getElementById('start').addEventListener('click', getStarted);
-
-    //Advances to Question 2
-
-    document.getElementById('question1Next').addEventListener('click', function () {
-        TweenLite.to(question1, .33, {
-            x: '-100%'
-        });
-
-        TweenLite.to(question2, .33, {
-            x: '0%'
-        });
-
-        //Sets the number of the question
-        theQuestion = 2;
-        //Adjusts progress bar
-        setProgress();
-    });
-
-    document.getElementById('question2Next').addEventListener('click', function () {
-        //Slides Question 2 to the far left
-
-        TweenLite.to(question2, .33, {
-            x: '-100%'
-        });
-
-        TweenLite.to(question3, .33, {
-            x: '0%'
-        });
-
-        //Sets the number of the question for navigation
-        theQuestion = 3;
-        //Updates progress bar
-        setProgress();
-    });
-
-    //Advances to Question 4
-
-    document.getElementById('question3Next').addEventListener('click', function () {
-        //Slides question 3 to the far left
-        TweenLite.to(question3, .33, {
-            x: '-100%'
-        });
-
-        TweenLite.to(question4, .33, {
-            x: '0%'
-        });
-
-        //Sets the number of the question for navigation
-        theQuestion = 4;
-        //Updates the progress bar
-        setProgress();
-    });
-
-    //Advances to Question 5
-
-    document.getElementById('question4Next').addEventListener('click', function () {
-        //Slides question 4 to the far left
-
-        TweenLite.to(question4, .33, {
-            x: '-100%'
-        });
-
-        TweenLite.to(question5, .33, {
-            x: '0%'
-        });
-
-        //Updates the number of the question for navigation
-        theQuestion = 5;
-        //Updates the progress bar
-        setProgress();
-        finishAssessment();
-    })
-
-    //Toggles the question back one number
-
-    var prevQuestion = document.getElementsByClassName('previousQuestion');
-
-    for (var i = 0; i < prevQuestion.length; i++) {
-        prevQuestion[i].addEventListener('click', function () {
-            currentQuestion = '#question' + theQuestion;
-            //Creates a variable for what the previous question is
-            lastQuestion = '#question' + (theQuestion - 1);
-
-            var currentQuestion1 = document.getElementById('question' + theQuestion),
-                lastQuestion1 = document.getElementById('question' + (theQuestion - 1));
-
-            TweenLite.to(currentQuestion1, .33, {
-                x: '100%'
-            });
-
-            TweenLite.to(lastQuestion1, .33, {
-                x: '0%'
-            });
-
-            //Sets the current question number to the correct number for navigation
-            theQuestion = theQuestion - 1;
-            //Updates the progress bar
-            setProgress();
-        });
-    }
-
-
-    //Fades in the next question button when a value is set with the slider
-
-    slider1.noUiSlider.on('set', function () {
-        var question1Next = document.getElementById('question1Next');
-
-        question1Next.style.opacity = 1;
-        question1Next.style.visibility = 'visible'
-
-    });
-
-    //Fires the Email Submit function when the submit button is clicked
-
-    //    document.getElementById('emailSubmit').addEventListener('click', function() {
-    //       sendEmail(); 
-    //    });
-
-    //    emailSubmit.addEventListener('click', function() {
-    //       sendEmail(); 
-    //    });
-
-    //Fades the email box back to white. Used after the error function has been triggered. 
-
-    document.getElementById('gsEmail').addEventListener('focusin', function () {
-        document.getElementById('gsEmail').style.borderBottomColor = '#ffffff';
-        document.getElementById('gsEmail').style.color = '#ffffff';
-        document.getElementById('gsEmailLabel').style.color = '#ffffff';
-    });
-
-    slider5.noUiSlider.on('set', function () {
-        finishAssessment();
-    });
-
-});
-
-function validateEmail(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
 }
 
-//var mktoSubmit = document.getElementsByClassName('mktoButton');
-//
-//for (var i = 0; i < mktoSubmit.length; i++) {
-//    mktoSubmit[i].addEventListener('click', function () {
-//        getStarted();
-//    });
-//}
-
-function getStarted() {
-
-    var gsEmail = $('#gsEmail').val(),
-        gsName = $('#gsName').val(),
-        gsOrg = $('#gsOrg').val(),
-        mktoFName = document.getElementsByName('FirstName'),
-        mktoLName = document.getElementsByName('LastName'),
-        mktoEmail = document.getElementsByName('Email'),
-        mktoComp = document.getElementsByName('Company');
-
-    gsName = gsName.split(" ");
-
-    mktoFName[0].value = gsName[0];
-    mktoLName[0].value = gsName[1];
-    mktoEmail[0].value = gsEmail;
-    mktoComp[0].value = gsOrg;
-
-    //    if (validateEmail(gsEmail) === false) {
-    //        var l = 20,
-    //            gsEmailHolder = document.getElementById('gsEmailHolder');
-    //
-    //        gsEmailHolder.className += ' loginShake';
-    //
-    //        setTimeout(function () {
-    //            gsEmailHolder.classList.remove('loginShake');
-    //        }, 1000)
-    //
-    //        var gsEmail = document.getElementById('gsEmail'),
-    //            gsEmailLabel = document.getElementById('gsEmailLabel');
-    //
-    //        gsEmail.style.borderBottomColor = '#ffb2b2';
-    //        gsEmail.style.color = '#ffb2b2';
-    //        gsEmailLabel.style.color = '#ffb2b2';
-    //
-    //        return false;
-    //    }
-
-    setTimeout(function () {
-        var question1 = document.getElementById('question1');
-
-
-        TweenLite.to(question1, .33, {
-            css: {
-                x: 'translateX(0%)'
-            }
-        });
-        //        resizeQuestion();
-    }, 600);
-
-    //Fades out the into and slides Question 1 in from the far right
-
-    $('#intro').fadeOut(400);
-    $('.questions').css({
-        display: 'block'
-    });
-    //Sets the value of the question. Used for keeping track of what question has been answered for simple navigation
-    theQuestion = 1;
-    //Sets the progress bar along the bottom of the screen
-    setProgress();
-}
-
-function finishAssessment() {
-
-    var govVal = slider1.noUiSlider.get(),
-        caremapVal = slider2.noUiSlider.get(),
-        efficiencyVal = slider3.noUiSlider.get(),
-        qaVal = slider4.noUiSlider.get(),
-        itVal = slider5.noUiSlider.get(),
-        dataString,
-        finalVal,
-        mktoComments = document.getElementsByName('MktoPersonNotes');
-    finalVal = parseInt(govVal) + parseInt(caremapVal) + parseInt(efficiencyVal) + parseInt(qaVal) + parseInt(itVal);
-    finalVal = finalVal / 5;
-    dataString = 'Question 1: ' + govVal + ', Question 2: ' + caremapVal + ', Question 3: ' + efficiencyVal + ', Question 4: ' + qaVal + ', Question 5: ' + itVal + ', Total Score: ' + finalVal;
-    mktoComments[0].value = dataString;
-}
-
-//Function for updating the progress bar
-function setProgress() {
-    //Sets a variable which defines what the width of the bar across the bottom of the screen.
-    percentage = theQuestion / 5;
-    percentage = percentage * 100;
-
-    var progressBar = document.getElementById('progressBar');
-
-    progressBar.style.width = percentage + '%';
-}
-//Smooth Scroll
 $(function () {
     $('a[href*=\\#]:not([href=\\#])').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -307,230 +190,3 @@ $(function () {
         }
     });
 });
-
-//Resize Panel to full height on window resize
-
-window.onresize = function (event) {
-    resizeDiv();
-    resizeQuestion();
-}
-
-//Sets all Divs with the class "Panel" to full height
-function resizeDiv() {
-    //Gets the height of the window
-    //    vph = $(window).height();
-    vph = window.innerHeight;
-    //Sets all elements with the class "Panel" to full height
-    if (vph >= 900) {
-        var panel = document.getElementsByClassName('panel');
-        for (var i = 0; i < panel.length; i++) {
-            panel[i].style.height = vph + 'px';
-        }
-    } else {
-        var panel = document.getElementsByClassName('panel');
-        for (var i = 0; i < panel.length; i++) {
-            panel[i].style.height = 900 + 'px';
-        }
-    }
-}
-
-//Sets all divs with the class "Question" to full height and full width
-function resizeQuestion() {
-    //Gets window hight
-    //    questionH = $(window).height();
-
-    questionH = window.innerHeight;
-
-    //Gets window width
-    //    questionW = $(window).width();
-
-    questionW = window.outerWidth;
-
-    //Sets all elements with the class "question" to full height and width
-    if (questionH >= 900) {
-        $('.question').css({
-            'height': questionH + 'px',
-            'position': 'fixed'
-        });
-    } else {
-//        $('.question').css({
-//            'height': 900 + 'px',
-////            'position': 'absolute'
-//        });
-    }
-}
-//Used to set the values on the score card
-function setValues() {
-    //Gets the set values from each of the sliders
-    govVal = slider1.noUiSlider.get();
-    caremapVal = slider2.noUiSlider.get();
-    efficiencyVal = slider3.noUiSlider.get();
-    qaVal = slider4.noUiSlider.get();
-    itVal = slider5.noUiSlider.get();
-    //Sets color of the background circle based on the value of the sliders
-    switch (govVal) {
-    case '1':
-        document.getElementById('govCircle').style.backgroundColor = '#de3131';
-        break;
-    case '2':
-        document.getElementById('govCircle').style.backgroundColor = '#ff9600';
-        break;
-    case '3':
-        document.getElementById('govCircle').style.backgroundColor = '#ffd800';
-        break;
-    case '4':
-        document.getElementById('govCircle').style.backgroundColor = '#00db15';
-        break;
-    case '5':
-        document.getElementById('govCircle').style.backgroundColor = '#00db15';
-        break;
-    }
-    switch (caremapVal) {
-    case '1':
-        document.getElementById('careCircle').style.backgroundColor = '#de3131';
-        break;
-    case '2':
-        document.getElementById('careCircle').style.backgroundColor = '#ff9600';
-        break;
-    case '3':
-        document.getElementById('careCircle').style.backgroundColor = '#ffd800';
-        break;
-    case '4':
-        document.getElementById('careCircle').style.backgroundColor = '#00db15';
-        break;
-    case '5':
-        document.getElementById('careCircle').style.backgroundColor = '#00db15';
-        break;
-    }
-    switch (efficiencyVal) {
-    case '1':
-        document.getElementById('efficiencyCircle').style.backgroundColor = '#de3131';
-        break;
-    case '2':
-        document.getElementById('efficiencyCircle').style.backgroundColor = '#ff9600';
-        break;
-    case '3':
-        document.getElementById('efficiencyCircle').style.backgroundColor = '#ffd800';
-        break;
-    case '4':
-        document.getElementById('efficiencyCircle').style.backgroundColor = '#00db15';
-        break;
-    case '5':
-        document.getElementById('efficiencyCircle').style.backgroundColor = '#00db15';
-        break;
-    }
-    switch (qaVal) {
-    case '1':
-        document.getElementById('qaCircle').style.backgroundColor = '#de3131';
-        break;
-    case '2':
-        document.getElementById('qaCircle').style.backgroundColor = '#ff9600';
-        break;
-    case '3':
-        document.getElementById('qaCircle').style.backgroundColor = '#ffd800';
-        break;
-    case '4':
-        document.getElementById('qaCircle').style.backgroundColor = '#00db15';
-        break;
-    case '5':
-        document.getElementById('qaCircle').style.backgroundColor = '#00db15';
-        break;
-    }
-    switch (itVal) {
-    case '1':
-        document.getElementById('itCircle').style.backgroundColor = '#de3131';
-        break;
-    case '2':
-        document.getElementById('itCircle').style.backgroundColor = '#ff9600';
-        break;
-    case '3':
-        document.getElementById('itCircle').style.backgroundColor = '#ffd800';
-        break;
-    case '4':
-        document.getElementById('itCircle').style.backgroundColor = '#00db15';
-        break;
-    case '5':
-        document.getElementById('itCircle').style.backgroundColor = '#00db15';
-        break;
-    }
-    //Sets the numbers on the score card
-    document.getElementById('govNumber').innerHTML = govVal;
-    document.getElementById('careNumber').innerHTML = caremapVal;
-    document.getElementById('efficiencyNumber').innerHTML = efficiencyVal;
-    document.getElementById('qaNumber').innerHTML = qaVal;
-    document.getElementById('itNumber').innerHTML = itVal;
-    //Sets the overall value based on an average of the other values
-    overall = (parseInt(govVal) + parseInt(caremapVal) + parseInt(efficiencyVal) + parseInt(qaVal) + parseInt(itVal)) / 5;
-    //Overall number back to a real number
-    overall = parseInt(overall);
-    //Sets background color of the circle based on the value of overall
-    switch (overall) {
-    case 1:
-        document.getElementById('overallCircle').style.backgroundColor = '#de3131';
-        break;
-    case 2:
-        document.getElementById('overallCircle').style.backgroundColor = '#ff9600';
-        break;
-    case 3:
-        document.getElementById('overallCircle').style.backgroundColor = '#ffd800';
-        break;
-    case 4:
-        document.getElementById('overallCircle').style.backgroundColor = '#00db15';
-        break;
-    case 5:
-        document.getElementById('overallCircle').style.backgroundColor = '#00db15';
-        break;
-    }
-    //Sets the Overall number on the score card
-    document.getElementById('overallNumber').innerHTML = overall;
-}
-//Used to send the scorecard to the users email inputed email address.
-function sendEmail() {
-    //Gets the email address from the form field
-    email = $('#gsemail').val();
-    //Sets the values from the score card for transfer via query string
-    var gv = document.getElementById('govNumber').textContent,
-        cmv = document.getElementById('careNumber').textContent,
-        ev = document.getElementById('efficiencyNumber').textContent,
-        qv = document.getElementById('qaNumber').textContent,
-        iv = document.getElementById('itNumber').textContent;
-    //checks if the email address entered is a real email
-    if (validateEmail(email) === false) {
-        //Fires an error if it is a bad email
-        emailError();
-        //Eugune stop the track
-        return false;
-    }
-    //Sets the Query Sting
-    formData = 'email=' + email + '&govval=' + gv + '&caremapval=' + cmv + '&efficiencyval=' + ev + '&qaval=' + qv + '&itval=' + iv;
-    //Fires the email via Ajax. No page reloads.
-    $.ajax({
-            type: 'POST',
-            url: 'mailer.php',
-            data: formData,
-            cache: false,
-            success: function () {
-                $('.emailSubmitHolder').slideUp('fast');
-                $('.emailThankYou').slideDown('fast');
-            }
-        })
-        //
-    return false;
-}
-//Fires if the email is not correct. Changes the background of the Email field to light red.
-function emailError() {
-    var l = 20;
-    for (var i = 0; i < 10; i++) {
-        $('#emailCopyHolder').animate({
-            'margin-left': '+=' + (l = -l) + 'px',
-            'margin-right': '-=' + l + 'px'
-        }, 70);
-    }
-    $('#email').css({
-        'border-bottom-color': '#ffb2b2',
-        'color': '#ffb2b2'
-    });
-    $('#emailCopyLabel').css({
-        'color': '#ffb2b2'
-    });
-}
