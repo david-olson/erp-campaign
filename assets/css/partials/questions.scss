@@ -3,28 +3,43 @@
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
     transform: translateX(100%);
+    @media only screen and (max-height: 800px) {
+        overflow-y: scroll;
+    }
 }
 
 .question {
     position: absolute;
     top: 0;
     left: 0;
+    margin: 0;
     width: 100%;
     transform: translateX(100%);
+    -ms-transform: translateX(100%);
     z-index: 1;
     &:first-of-type {
         display: block;
-        transform: initial;
+        transform: translateX(0%);
+        -ms-transform: translateX(0%);
+    }
+    @media #{$iphone5} {
+        min-height: 900px !important;
     }
     .question_content {
         position: absolute;
         width: 100%;
         top: 50%;
         transform: translateY(-50%);
+        @media #{$allPhones} {
+            position: static !important;
+            transform: translateY(0) !important;
+            top: 0 !important;
+        }
     }
     .text_wrapper {
         width: 90%;
@@ -43,11 +58,20 @@
             width: 82%;
             margin: 0 auto;
             margin-bottom: 2.5rem;
+            @media #{$allPhones} {
+                margin-bottom: 4rem;
+            }
         }
         .noUi-handle {
             transition: all .2s cubic-bezier(0.61, 0.35, 0.42, 2);
             &:hover {
                 transform: scale(1.2);
+            }
+            @media #{$allPhones} {
+                left: -38px;
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
         .slider_labels {
@@ -70,6 +94,29 @@
                 img {
                     max-width: 100%;
                 }
+                @media #{$allPhones} {
+                    width: 18%;
+                    left: -20px;
+                    position: relative;
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                }
+                @media #{$iphone6} {
+                    margin-right: 0.85%;
+                }
+                @media #{$iphone5} {
+                    margin-right: 0.65%;
+                }
+                @media #{$allTablets} {
+                    width: 15%;
+                    margin-right: 4%;
+                    left: -20px;
+                    position: relative;
+                }
+            }
+            @media #{$allPhones} {
+                margin-bottom: 3rem;
             }
         }
         .slider_instructions {
@@ -78,6 +125,9 @@
                 color: #ffffff;
             }
             margin-bottom: 1.5rem;
+        }
+        @media #{$allPhones} {
+            width: 90%;
         }
     }
     button {
@@ -96,9 +146,42 @@
         cursor: pointer;
         transition: all ease-out .33s;
         margin-bottom: 1.5rem;
+        text-transform: uppercase;
         &:hover,
         &:focus {
             background-color: darken(#ffffff, 5%);
+        }
+    }
+    #mktoForm_1256 {
+        width: 100% !important;
+    }
+    .mktoButtonRow {
+        width: 100% !important;
+        display: block !important;
+        button {
+            display: block !important;
+            position: relative !important;
+            font-family: 'Roboto Condensed', sans-serif !important;
+            font-weight: 400 !important;
+            text-transform: uppercase !important;
+            z-index: 2 !important;
+            width: 90% !important;
+            max-width: 800px !important;
+            margin: 0 auto !important;
+            background-color: #ffffff !important;
+            padding: 10px 0 !important;
+            font-size: 1rem !important;
+            border: 0 !important;
+            outline: 0 !important;
+            border-bottom: 5px solid rgba(0, 0, 0, 0.2) !important;
+            cursor: pointer !important;
+            transition: all ease-out .33s !important;
+            margin-bottom: 1.5rem !important;
+            border-radius: 0px !important;
+            &:hover,
+            &:focus {
+                background-color: darken(#ffffff, 5%) !important;
+            }
         }
     }
     button#q1Next {
@@ -139,25 +222,69 @@
         left: 0;
         background-color: rgba(0, 0, 0, 0.8);
         z-index: -1;
+        @media #{$allPhones} {
+            height: 50%;
+        }
     }
+    
 }
 
 #question1 {
     background-image: url('./assets/img/SupplyChaintech_Green.png');
+    &:after {
+        @media #{$iphone5} {
+            height: 45%;
+        }
+        @media #{$iphone6} {
+            height: 48%;
+        }
+    }
 }
 
 #question2 {
     background-image: url('./assets/img/HighValueCare_Green.png');
+    &:after {
+        @media #{$iphone5} {
+            height: 54%;
+        }
+        @media #{$iphone6} {
+            height: 48%;
+        }
+    }
 }
 
 #question3 {
     background-image: url('./assets/img/FinancialMgmt_Green.png');
+    &:after {
+        @media #{$iphone5} {
+            height: 48%;
+        }
+        @media #{$iphone6} {
+            height: 51%;
+        }
+    }
 }
 
 #question4 {
     background-image: url('./assets/img/Labor_Green.png');
+    &:after {
+        @media #{$iphone5} {
+            height: 38%;
+        }
+        @media #{$iphone6} {
+            height: 41%;
+        }
+    }
 }
 
 #question5 {
     background-image: url('./assets/img/BestPractices_Green.png');
+    &:after {
+        @media #{$iphone5} {
+            height: 48%;
+        }
+        @media #{$iphone6} {
+            height: 54%;
+        }
+    }
 }

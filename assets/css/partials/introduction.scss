@@ -7,6 +7,7 @@ body {
     position: relative;
     text-align: center;
     color: #ffffff;
+    padding: 20px;
     .panel {
         position: relative;
         .panel_content {
@@ -38,6 +39,9 @@ body {
                 line-height: 1.65em;
                 color: #555555;
             }
+            @media #{$allPhones} {
+                width: 90%;
+            }
         }
         .down {
             display: inline-block;
@@ -49,6 +53,9 @@ body {
                 &:hover {
                     transform: translateY(10px);
                 }
+            }
+            @media #{$allPhones} {
+                display: none;
             }
         }
     }
@@ -76,9 +83,12 @@ body {
                 padding: 10px 0;
                 margin-bottom: 10px;
                 transition: all ease-out .25s;
+                border-radius: 0px;
             }
             input[type=submit] {
+                -webkit-appearance: none;
                 display: block;
+                border-radius: 0;
                 background-color: #fff;
                 font-size: 1rem;
                 width: 100%;
