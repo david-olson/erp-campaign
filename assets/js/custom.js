@@ -26,6 +26,7 @@ if (browser.isIe() && browser.getVersion() <= 9) {
 
        alert("You are currently using Internet Explorer " + browser.getVersion() + " or are viewing the site in Compatibility View, please upgrade for a better user experience.")
     }
+    
     var advanceButtons = document.getElementsByClassName('advance_button'),
         moneyStack = document.getElementsByClassName('money_stack'),
         backButton = document.getElementsByClassName('back_button'),
@@ -56,8 +57,11 @@ if (browser.isIe() && browser.getVersion() <= 9) {
     }, 50);
     slider1.noUiSlider.on('set', function () {
         var question1Next = document.getElementById('q1Next');
-
-        question1Next.style.opacity = 1;
+        question1Next.style.visibility = 'visible';
+        setTimeout(function() {
+             question1Next.style.opacity = 1;
+        }, 100);
+       
 
     });
     
@@ -130,8 +134,19 @@ function resizeQuestions() {
 }
 
 function getStarted(e) {
+    
+    //Slide out intro, slide in 1st question
+    
     var introduction = document.getElementById('intro'),
-        questions = document.getElementById('questions');
+        questions = document.getElementById('questions'),
+        gsEmail = document.getElementsByName('gsEmail')[0].value,
+        gsName = document.getElementsByName('gsName')[0].value,
+        gsOrg = document.getElementsByName('gsOrg')[0].value,
+        mktoFName = document.getElementsByName('FirstName')[0],
+        mktoLName = document.getElementsByName('LastName')[0],
+        mktoEmail = document.getElementsByName('Email'),
+        mktoComp = document.getElementsByName('Company');
+    
     $(introduction).fadeOut(350);
     setTimeout(function () {
         questions.style.display = 'block';
@@ -141,7 +156,18 @@ function getStarted(e) {
             });
         }, 50)
 
-    }, 450)
+    }, 450);
+    
+    //Set hidden form values
+    
+    gsName = gsName.split(" ");
+    
+    mktoFName.value = gsName[0];
+    mktoLName.value = gsName[1];
+    mktoEmail.value = gsEmail;
+    mktoComp.value = gsOrg;
+    
+    
     return false;
 }
 
@@ -160,6 +186,7 @@ function advancePanel(e) {
     TweenLite.to(nextQuestionObject, .33, {
         x: '0%'
     });
+    updateValues();
 }
 
 function reversePanel(e) {
@@ -210,6 +237,17 @@ function moneyStackClick(e) {
         cash = new Audio('./assets/audio/money.mp3');
         cash.play();
     }
+}
+
+function updateValues() {
+    var slider1Val = slider1.noUiSlider.get(),
+        slider2Val = slider2.noUiSlider.get(),
+        slider3Val = slider3.noUiSlider.get(),
+        slider4Val = slider4.noUiSlider.get(),
+        slider5Val = slider5.noUiSlider.get(),
+        form1Set = document.getElementsByName('costCamSCMat')[0];
+    
+    form1Set.value = parseInt(slider1Val);
 }
 
 $(function () {
