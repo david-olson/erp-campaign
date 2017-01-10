@@ -148,6 +148,7 @@ function getStarted(e) {
         mktoComp = document.getElementsByName('Company');
     
     $(introduction).fadeOut(350);
+    $('#progress').fadeIn(350);
     setTimeout(function () {
         questions.style.display = 'block';
         setTimeout(function () {
@@ -167,6 +168,15 @@ function getStarted(e) {
     mktoEmail.value = gsEmail;
     mktoComp.value = gsOrg;
     
+    var pBar = document.getElementById('progress-bar');
+    
+    TweenLite.to(pBar, .25, {
+        width: 100/6 + '%'
+    });
+    
+    setTimeout(function() {
+        $('#questions-logo').fadeIn(500);
+    }, 1000)
     
     return false;
 }
@@ -187,6 +197,7 @@ function advancePanel(e) {
         x: '0%'
     });
     updateValues();
+    updateProgress(nextQuestion, 1);
 }
 
 function reversePanel(e) {
@@ -203,6 +214,7 @@ function reversePanel(e) {
     TweenLite.to(lastQuestionObject, .33, {
         x: '0%'
     });
+    updateProgress(lastQuestion, 0);
 }
 
 function moneyStackClick(e) {
@@ -248,6 +260,38 @@ function updateValues() {
         form1Set = document.getElementsByName('costCamSCMat')[0];
     
     form1Set.value = parseInt(slider1Val);
+}
+
+function updateProgress(questionNumber, direction) {
+    var pBar = document.getElementById('progress-bar'),
+        pNumbers = document.getElementsByClassName('progress_numbers'),
+        currentNumber,
+        nextNumber,
+        pBarNewWidth = (100 / 6) * questionNumber;
+    TweenLite.to(pBar, .25, {
+        width: pBarNewWidth + '%'
+    });
+    if (direction === 1) {
+        nextNumber = questionNumber;
+        currentNumber = nextNumber - 1;
+        TweenLite.to(pNumbers[currentNumber - 1], .25, {
+            y: '100%'
+        });
+        TweenLite.to(pNumbers[nextNumber - 1], .25, {
+            y: '0%'
+        });
+    } else if (direction === 0) {
+        nextNumber = questionNumber;
+        currentNumber = nextNumber + 1;
+        TweenLite.to(pNumbers[currentNumber - 1], .25, {
+            y: '-100%'
+        });
+        TweenLite.to(pNumbers[nextNumber - 1], .25, {
+            y: '0%'
+        })
+    }
+    
+    
 }
 
 $(function () {

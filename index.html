@@ -40,6 +40,9 @@
         </section>
     </div>
     <div class="questions" id="questions">
+       <div class="questions_logo" id="questions-logo">
+           <img src="./assets/img/cm-logo.svg" alt="Premier Cost Management" />
+       </div>
         <section class="question" id="question1">
             <div class="question_content">
                 <div class="text_wrapper">
@@ -154,17 +157,20 @@
                     <h2>Egestas Etiam</h2>
                     <p>Nulla vitae elit libero, a pharetra augue.</p>
                 </div>
-                <form name="question6">
+                <form class="question6_form" name="question6">
+                   <input type="checkbox" name="question6answers" value="1" id="question6answers1">
                     <label for="question6answers1">
-                        <input type="checkbox" name="question6answers" value="1" id="question6answers1">
+                        
                         Option 1
                     </label>
+                    <input type="checkbox" name="question6answers" value="2" id="question6answers2">
                     <label for="question6answers2">
-                        <input type="checkbox" name="question6answers" value="2" id="question6answers2">
+                        
                         Option 2
                     </label>
+                    <input type="checkbox" name="question6answers" value="3" id="question6answers3">
                     <label for="question6answers3">
-                        <input type="checkbox" name="question6answers" value="3" id="question6answers3">
+                        
                         Option 3
                     </label>
                 </form>
@@ -176,7 +182,17 @@
             </div>
         </section>
     </div>
-    <div class="progress_bar" id="progress-bar"></div>
+    <div class="progress" id="progress">
+        <div class="progress_number" id="progress-number">
+            <span class="progress_numbers">1/6</span>
+            <span class="progress_numbers">2/6</span>
+            <span class="progress_numbers">3/6</span>
+            <span class="progress_numbers">4/6</span>
+            <span class="progress_numbers">5/6</span>
+            <span class="progress_numbers">6/6</span>
+        </div>
+        <div class="progress_bar" id="progress-bar"></div>
+    </div>
 
     <script>
         var slider1 = document.getElementById('q1Slider');

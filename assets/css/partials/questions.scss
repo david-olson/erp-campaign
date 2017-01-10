@@ -11,6 +11,18 @@
     @media only screen and (max-height: 800px) {
         overflow-y: scroll;
     }
+    .questions_logo {
+        z-index: 999;
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 500px;
+        img {
+            width: 100%;
+            padding: 20px;
+        }
+    }
 }
 
 .question {
@@ -230,6 +242,49 @@
         }
     }
     
+    .question6_form {
+        width: 90%;
+        margin: 0 auto; 
+        max-width: 600px;
+        label {
+            display: block;
+            background-color: rgba(255,255,255,0.25);
+            width: 100%;
+            padding: 20px;
+            padding-left: 75px;
+            margin-bottom: 20px;
+            transition: all ease-out .25s;
+            position: relative;
+            cursor: pointer;
+            overflow:hidden;
+            &:before {
+                display: block;
+                content: ' ';
+                height: 70%;
+                width: 50px;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-200%);
+                background-color: #fff;
+                position: absolute;
+                border-radius: 50%;
+                transition: all ease-out .25s;
+                background-image: url('./assets/img/coin.png');
+                background-size: cover;
+                background-position: center;
+            }
+        }
+        input[type=checkbox] {
+            visibility: hidden;
+        }
+        input[type=checkbox]:checked + label {
+            background-color: rgba(0,0,0,0.25);
+        }
+        input[type=checkbox]:checked + label:before {
+            transform: translateY(-50%)
+        }
+    }
+    
 }
 
 #question1 {
@@ -289,5 +344,56 @@
         @media #{$iphone6} {
             height: 54%;
         }
+    }
+}
+
+#question6 {
+    &:after {
+        display: none;
+    }
+}
+
+.progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: none;
+    .progress_number {
+        width: 70px;
+        height: 70px;
+        overflow: hidden;
+        background-color: $greenText;
+        color: #ffffff;
+        border-radius: 50%;
+        position: relative;
+        left: 20px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        z-index: 1000;
+        span {
+            display: block;
+            height: 70px;
+            width: 70px;
+            text-align: center;
+            line-height: 70px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-100%);
+            &:first-of-type {
+                transform: translateY(0%);
+            }
+        }
+    }
+    .progress_bar {
+        position: absolute;
+        display: block;
+        width: 0%;
+        height: 20px;
+        left: 0;
+        bottom: 0;
+        background-color: #ffffff;
+        //    transition: width ease-out .25s;
     }
 }
