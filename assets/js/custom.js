@@ -27,7 +27,14 @@ if (browser.isIe() && browser.getVersion() <= 9) {
        alert("You are currently using Internet Explorer " + browser.getVersion() + " or are viewing the site in Compatibility View, please upgrade for a better user experience.")
     }
     
+    console.log(browser.navigator);
+    
+    if (browser.isIe() === true || browser.navigator.includes('Edge')) {
+        $('body').addClass('ie');
+    }
+    
     var advanceButtons = document.getElementsByClassName('advance_button'),
+        advanceButtonLast = document.getElementsByClassName('advance_button_last'),
         moneyStack = document.getElementsByClassName('money_stack'),
         backButton = document.getElementsByClassName('back_button'),
         i;
@@ -37,6 +44,10 @@ if (browser.isIe() && browser.getVersion() <= 9) {
             advancePanel(this);
         });
     }
+    
+    advanceButtonLast[0].addEventListener('click', function() {
+        finishAssessment(this);
+    });
 
     for (i = 0; i < moneyStack.length; i++) {
         moneyStack[i].addEventListener('click', function () {
@@ -139,9 +150,9 @@ function getStarted(e) {
     
     var introduction = document.getElementById('intro'),
         questions = document.getElementById('questions'),
-        gsEmail = document.getElementsByName('gsEmail')[0].value,
-        gsName = document.getElementsByName('gsName')[0].value,
-        gsOrg = document.getElementsByName('gsOrg')[0].value,
+//        gsEmail = document.getElementsByName('gsEmail')[0].value,
+//        gsName = document.getElementsByName('gsName')[0].value,
+//        gsOrg = document.getElementsByName('gsOrg')[0].value,
         mktoFName = document.getElementsByName('FirstName')[0],
         mktoLName = document.getElementsByName('LastName')[0],
         mktoEmail = document.getElementsByName('Email'),
@@ -161,12 +172,12 @@ function getStarted(e) {
     
     //Set hidden form values
     
-    gsName = gsName.split(" ");
-    
-    mktoFName.value = gsName[0];
-    mktoLName.value = gsName[1];
-    mktoEmail.value = gsEmail;
-    mktoComp.value = gsOrg;
+//    gsName = gsName.split(" ");
+//    
+//    mktoFName.value = gsName[0];
+//    mktoLName.value = gsName[1];
+//    mktoEmail.value = gsEmail;
+//    mktoComp.value = gsOrg;
     
     var pBar = document.getElementById('progress-bar');
     
@@ -198,6 +209,24 @@ function advancePanel(e) {
     });
     updateValues();
     updateProgress(nextQuestion, 1);
+}
+
+function finishAssessment(e) {
+    var elementId = e.id,
+        thisQuestion = elementId.charAt(1),
+        thisQuestionId = 'question' + thisQuestion,
+        thisQuestionObject = document.getElementById(thisQuestionId),
+        nextQuestion = parseInt(thisQuestion) + 1,
+        nextQuestionId = 'question' + nextQuestion,
+        nextQuestionObject = document.getElementById(nextQuestionId);
+    TweenLite.to(thisQuestionObject, .33, {
+        x: '-100%'
+    });
+    TweenLite.to(nextQuestionObject, .33, {
+        x: '0%'
+    });
+    $('#progress').fadeOut(500);
+    $('#questions-logo').fadeOut(500);
 }
 
 function reversePanel(e) {

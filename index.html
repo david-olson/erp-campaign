@@ -17,16 +17,20 @@
             <div class="panel_content">
                 <img class="logo" src="./assets/img/pinc-logo-white.svg" alt="Premier Inc." />
                 <div class="sticky_note">
-                    <p>Oh good, you’ve found our note!</p>
+                    <p>Oh good, you found our note!</p>
                     <p>Now let’s find some money.</p>
                 </div>
                 <p>Begin evaluating your operational maturity.</p>
-                <a class="down" href="#panel2"><img src="./assets/img/down.svg" alt="" /></a>
+<!--                <a class="down" href="#panel2"><img src="./assets/img/down.svg" alt="" /></a>-->
+                <form onsubmit="return getStarted()">
+                    <input type="submit" value="Get Started">
+                </form>
             </div>
         </section>
+<!--
         <section class="panel panel2" id="panel2">
             <div class="panel_content">
-                <h2>To get started, please fill out the form below.</h2>
+                
                 <form onsubmit="return getStarted()">
                     <label for="gsName">
                         <input type="text" name="gsName">Name</label>
@@ -38,6 +42,7 @@
                 </form>
             </div>
         </section>
+-->
     </div>
     <div class="questions" id="questions">
        <div class="questions_logo" id="questions-logo">
@@ -154,26 +159,41 @@
         <section class="question" id="question6">
             <div class="question_content">
                 <div class="text_wrapper">
-                    <h2>Egestas Etiam</h2>
-                    <p>Nulla vitae elit libero, a pharetra augue.</p>
+                    <p>Please indicate which area of savings is the most important to your organization</p>
                 </div>
                 <form class="question6_form" name="question6">
-                   <input type="checkbox" name="question6answers" value="1" id="question6answers1">
+                   <input type="radio" name="question6answers" value="ERP Technology" id="question6answers1">
                     <label for="question6answers1">
-                        
-                        Option 1
+                        ERP Technology
                     </label>
-                    <input type="checkbox" name="question6answers" value="2" id="question6answers2">
-                    <label for="question6answers2">
-                        
-                        Option 2
+                    <input type="radio" name="question6answers" value="Supply Chain Savings" id="question6answers2">
+                    <label for="question6answers2">   
+                        Supply Chain Savings
                     </label>
-                    <input type="checkbox" name="question6answers" value="3" id="question6answers3">
+                    <input type="radio" name="question6answers" value="Financial Management" id="question6answers3">
                     <label for="question6answers3">
-                        
-                        Option 3
+                        Financial Management
                     </label>
+                    <input type="radio" name="question6answers" value="Labor Management" id="question6answers4">
+                    <label for="question6answers4">
+                        Labor Management
+                    </label>
+                    <input type="radio" name="question6answers" value="Advisory Services" id="question6answers5">
+                    <label for="question6answers5">
+                        Advisory Services
+                    </label>
+                    
                 </form>
+                <button type="button" class="advance_button_last" id="q6Next">Finish Assessment</button>
+                <button type="button" class="back_button" id="q6Back"><img src="./assets/img/back.svg" alt="" /> Go Back A Question</button>
+            </div>
+        </section>
+        <section class="question" id="question7">
+            <div class="question_content">
+                <div class="text_wrapper">
+                    <h2>Thank you.</h2>
+                    <p>Please provide the information below to recieve an email with your results.</p>
+                </div>
                 <script src="//app-ab03.marketo.com/js/forms2/js/forms2.min.js"></script>
                 <form id="mktoForm_1322"></form>
                 <script>
