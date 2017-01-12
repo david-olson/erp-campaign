@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Premier Inc. - Let's Find Some Money</title>
-    <link rel="stylesheet" href="main.min.css">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/found-money/main.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="./assets/js/vendors.min.js"></script>
+    <script src="https://s3.amazonaws.com/found-money/vendors.min.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Shadows+Into+Light" rel="stylesheet">
 </head>
 
@@ -15,38 +15,21 @@
     <div class="intro" id="intro">
         <section class="panel panel1" id="panel1">
             <div class="panel_content">
-                <img class="logo" src="./assets/img/pinc-logo-white.svg" alt="Premier Inc." />
+                <img class="logo" src="https://s3.amazonaws.com/found-money/pinc-logo-white.svg" alt="Premier Inc." />
                 <div class="sticky_note">
                     <p>Oh good, you found our note!</p>
                     <p>Now let’s find some money.</p>
                 </div>
                 <p>Begin evaluating your operational maturity.</p>
-<!--                <a class="down" href="#panel2"><img src="./assets/img/down.svg" alt="" /></a>-->
                 <form onsubmit="return getStarted()">
                     <input type="submit" value="Get Started">
                 </form>
             </div>
         </section>
-<!--
-        <section class="panel panel2" id="panel2">
-            <div class="panel_content">
-                
-                <form onsubmit="return getStarted()">
-                    <label for="gsName">
-                        <input type="text" name="gsName">Name</label>
-                    <label for="gsEmail">
-                        <input type="text" name="gsEmail">Email</label>
-                    <label for="gsOrg">
-                        <input type="text" name="gsOrg">Organiation Name</label>
-                    <input type="submit" value="Get Started">
-                </form>
-            </div>
-        </section>
--->
     </div>
     <div class="questions" id="questions">
        <div class="questions_logo" id="questions-logo">
-           <img src="./assets/img/cm-logo.svg" alt="Premier Cost Management" />
+           <img src="https://s3.amazonaws.com/found-money/cm-logo.svg" alt="Premier Cost Management" />
        </div>
         <section class="question" id="question1">
             <div class="question_content">
@@ -57,11 +40,11 @@
                 </div>
                 <div class="slider_wrapper">
                     <div class="slider_labels">
-                        <div data-moneyval="1" class="money_stack option_1" id="q1Option1"><img src="./assets/img/stack1.svg" alt="Bad"></div>
-                        <div data-moneyval="2" class="money_stack option_2" id="q1Option2"><img src="./assets/img/stack2.svg" alt="Fair"></div>
-                        <div data-moneyval="3" class="money_stack option_3" id="q1Option3"><img src="./assets/img/stack3.svg" alt="Good"></div>
-                        <div data-moneyval="4" class="money_stack option_4" id="q1Option4"><img src="./assets/img/stack4.svg" alt="Very Good"></div>
-                        <div data-moneyval="5" class="money_stack option_5" id="q1Option5"><img src="./assets/img/stack5.svg" alt="Outstanding"></div>
+                        <div data-moneyval="1" class="money_stack option_1" id="q1Option1"><img src="https://s3.amazonaws.com/found-money/stack1.svg" alt="Bad"></div>
+                        <div data-moneyval="2" class="money_stack option_2" id="q1Option2"><img src="https://s3.amazonaws.com/found-money/stack2.svg" alt="Fair"></div>
+                        <div data-moneyval="3" class="money_stack option_3" id="q1Option3"><img src="https://s3.amazonaws.com/found-money/stack3.svg" alt="Good"></div>
+                        <div data-moneyval="4" class="money_stack option_4" id="q1Option4"><img src="https://s3.amazonaws.com/found-money/stack4.svg" alt="Very Good"></div>
+                        <div data-moneyval="5" class="money_stack option_5" id="q1Option5"><img src="https://s3.amazonaws.com/found-money/stack5.svg" alt="Outstanding"></div>
                     </div>
                     <div id="q1Slider" class="slider"></div>
                     <div class="slider_instructions">
@@ -81,16 +64,16 @@
                 </div>
                 <div class="slider_wrapper">
                     <div class="slider_labels">
-                        <div data-moneyval="1" class="money_stack option_1" id="q2Option1"><img src="./assets/img/stack1.svg" alt="Bad"></div>
-                        <div data-moneyval="2" class="money_stack option_2" id="q2Option2"><img src="./assets/img/stack2.svg" alt="Fair"></div>
-                        <div data-moneyval="3" class="money_stack option_3" id="q2Option3"><img src="./assets/img/stack3.svg" alt="Good"></div>
-                        <div data-moneyval="4" class="money_stack option_4" id="q2Option4"><img src="./assets/img/stack4.svg" alt="Very Good"></div>
-                        <div data-moneyval="5" class="money_stack option_5" id="q2Option5"><img src="./assets/img/stack5.svg" alt="Outstanding"></div>
+                        <div data-moneyval="1" class="money_stack option_1" id="q2Option1"><img src="https://s3.amazonaws.com/found-money/stack1.svg" alt="Bad"></div>
+                        <div data-moneyval="2" class="money_stack option_2" id="q2Option2"><img src="https://s3.amazonaws.com/found-money/stack2.svg" alt="Fair"></div>
+                        <div data-moneyval="3" class="money_stack option_3" id="q2Option3"><img src="https://s3.amazonaws.com/found-money/stack3.svg" alt="Good"></div>
+                        <div data-moneyval="4" class="money_stack option_4" id="q2Option4"><img src="https://s3.amazonaws.com/found-money/stack4.svg" alt="Very Good"></div>
+                        <div data-moneyval="5" class="money_stack option_5" id="q2Option5"><img src="https://s3.amazonaws.com/found-money/stack5.svg" alt="Outstanding"></div>
                     </div>
                     <div id="q2Slider" class="slider"></div>
                 </div>
                 <button class="advance_button" type="button" id="q2Next">Next</button>
-                <button type="button" class="back_button" id="q2Back"><img src="./assets/img/back.svg" alt="" /> Go Back A Question</button>
+                <button type="button" class="back_button" id="q2Back"><img src="https://s3.amazonaws.com/found-money/back.svg" alt="" /> Go Back A Question</button>
             </div>
         </section>
         <section class="question" id="question3">
@@ -102,16 +85,16 @@
                 </div>
                 <div class="slider_wrapper">
                     <div class="slider_labels">
-                        <div data-moneyval="1" class="money_stack option_1" id="q3Option1"><img src="./assets/img/stack1.svg" alt="Bad"></div>
-                        <div data-moneyval="2" class="money_stack option_2" id="q3Option2"><img src="./assets/img/stack2.svg" alt="Fair"></div>
-                        <div data-moneyval="3" class="money_stack option_3" id="q3Option3"><img src="./assets/img/stack3.svg" alt="Good"></div>
-                        <div data-moneyval="4" class="money_stack option_4" id="q3Option4"><img src="./assets/img/stack4.svg" alt="Very Good"></div>
-                        <div data-moneyval="5" class="money_stack option_5" id="q3Option5"><img src="./assets/img/stack5.svg" alt="Outstanding"></div>
+                        <div data-moneyval="1" class="money_stack option_1" id="q3Option1"><img src="https://s3.amazonaws.com/found-money/stack1.svg" alt="Bad"></div>
+                        <div data-moneyval="2" class="money_stack option_2" id="q3Option2"><img src="https://s3.amazonaws.com/found-money/stack2.svg" alt="Fair"></div>
+                        <div data-moneyval="3" class="money_stack option_3" id="q3Option3"><img src="https://s3.amazonaws.com/found-money/stack3.svg" alt="Good"></div>
+                        <div data-moneyval="4" class="money_stack option_4" id="q3Option4"><img src="https://s3.amazonaws.com/found-money/stack4.svg" alt="Very Good"></div>
+                        <div data-moneyval="5" class="money_stack option_5" id="q3Option5"><img src="https://s3.amazonaws.com/found-money/stack5.svg" alt="Outstanding"></div>
                     </div>
                     <div id="q3Slider" class="slider"></div>
                 </div>
                 <button class="advance_button" type="button" id="q3Next">Next</button>
-                <button type="button" class="back_button" id="q3Back"><img src="./assets/img/back.svg" alt="" /> Go Back A Question</button>
+                <button type="button" class="back_button" id="q3Back"><img src="https://s3.amazonaws.com/found-money/back.svg" alt="" /> Go Back A Question</button>
             </div>
         </section>
         <section class="question" id="question4">
@@ -123,16 +106,16 @@
                 </div>
                 <div class="slider_wrapper">
                     <div class="slider_labels">
-                        <div data-moneyval="1" class="money_stack option_1" id="q4Option1"><img src="./assets/img/stack1.svg" alt="Bad"></div>
-                        <div data-moneyval="2" class="money_stack option_2" id="q4Option2"><img src="./assets/img/stack2.svg" alt="Fair"></div>
-                        <div data-moneyval="3" class="money_stack option_3" id="q4Option3"><img src="./assets/img/stack3.svg" alt="Good"></div>
-                        <div data-moneyval="4" class="money_stack option_4" id="q4Option4"><img src="./assets/img/stack4.svg" alt="Very Good"></div>
-                        <div data-moneyval="5" class="money_stack option_5" id="q4Option5"><img src="./assets/img/stack5.svg" alt="Outstanding"></div>
+                        <div data-moneyval="1" class="money_stack option_1" id="q4Option1"><img src="https://s3.amazonaws.com/found-money/stack1.svg" alt="Bad"></div>
+                        <div data-moneyval="2" class="money_stack option_2" id="q4Option2"><img src="https://s3.amazonaws.com/found-money/stack2.svg" alt="Fair"></div>
+                        <div data-moneyval="3" class="money_stack option_3" id="q4Option3"><img src="https://s3.amazonaws.com/found-money/stack3.svg" alt="Good"></div>
+                        <div data-moneyval="4" class="money_stack option_4" id="q4Option4"><img src="https://s3.amazonaws.com/found-money/stack4.svg" alt="Very Good"></div>
+                        <div data-moneyval="5" class="money_stack option_5" id="q4Option5"><img src="https://s3.amazonaws.com/found-money/stack5.svg" alt="Outstanding"></div>
                     </div>
                     <div id="q4Slider" class="slider"></div>
                 </div>
                 <button class="advance_button" type="button" id="q4Next">Next</button>
-                <button type="button" class="back_button" id="q4Back"><img src="./assets/img/back.svg" alt="" /> Go Back A Question</button>
+                <button type="button" class="back_button" id="q4Back"><img src="https://s3.amazonaws.com/found-money/back.svg" alt="" /> Go Back A Question</button>
             </div>
         </section>
         <section class="question" id="question5">
@@ -144,16 +127,16 @@
                 </div>
                 <div class="slider_wrapper">
                     <div class="slider_labels">
-                        <div data-moneyval="1" class="money_stack option_1" id="q5Option1"><img src="./assets/img/stack1.svg" alt="Bad"></div>
-                        <div data-moneyval="2" class="money_stack option_2" id="q5Option2"><img src="./assets/img/stack2.svg" alt="Fair"></div>
-                        <div data-moneyval="3" class="money_stack option_3" id="q5Option3"><img src="./assets/img/stack3.svg" alt="Good"></div>
-                        <div data-moneyval="4" class="money_stack option_4" id="q5Option4"><img src="./assets/img/stack4.svg" alt="Very Good"></div>
-                        <div data-moneyval="5" class="money_stack option_5" id="q5Option5"><img src="./assets/img/stack5.svg" alt="Outstanding"></div>
+                        <div data-moneyval="1" class="money_stack option_1" id="q5Option1"><img src="https://s3.amazonaws.com/found-money/stack1.svg" alt="Bad"></div>
+                        <div data-moneyval="2" class="money_stack option_2" id="q5Option2"><img src="https://s3.amazonaws.com/found-money/stack2.svg" alt="Fair"></div>
+                        <div data-moneyval="3" class="money_stack option_3" id="q5Option3"><img src="https://s3.amazonaws.com/found-money/stack3.svg" alt="Good"></div>
+                        <div data-moneyval="4" class="money_stack option_4" id="q5Option4"><img src="https://s3.amazonaws.com/found-money/stack4.svg" alt="Very Good"></div>
+                        <div data-moneyval="5" class="money_stack option_5" id="q5Option5"><img src="https://s3.amazonaws.com/found-money/stack5.svg" alt="Outstanding"></div>
                     </div>
                     <div id="q5Slider" class="slider"></div>
                 </div>
                 <button type="button" class="advance_button" id="q5Next">Next</button>
-                <button type="button" class="back_button" id="q5Back"><img src="./assets/img/back.svg" alt="" /> Go Back A Question</button>
+                <button type="button" class="back_button" id="q5Back"><img src="https://s3.amazonaws.com/found-money/back.svg" alt="" /> Go Back A Question</button>
             </div>
         </section>
         <section class="question" id="question6">
@@ -185,7 +168,7 @@
                     
                 </form>
                 <button type="button" class="advance_button_last" id="q6Next">Finish Assessment</button>
-                <button type="button" class="back_button" id="q6Back"><img src="./assets/img/back.svg" alt="" /> Go Back A Question</button>
+                <button type="button" class="back_button" id="q6Back"><img src="https://s3.amazonaws.com/found-money/back.svg" alt="" /> Go Back A Question</button>
             </div>
         </section>
         <section class="question" id="question7">
@@ -281,7 +264,7 @@
             })
         });
     </script>
-    <script src="./assets/js/custom.min.js"></script>
+    <script src="https://s3.amazonaws.com/found-money/custom.min.js"></script>
 </body>
 
 </html>

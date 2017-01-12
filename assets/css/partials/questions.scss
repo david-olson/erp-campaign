@@ -201,7 +201,7 @@
             font-weight: 400 !important;
             text-transform: uppercase !important;
             z-index: 2 !important;
-            width: 90% !important;
+            width: 100% !important;
             max-width: 800px !important;
             margin: 0 auto !important;
             background-color: #ffffff !important;
@@ -297,7 +297,7 @@
                 position: absolute;
                 border-radius: 50%;
                 transition: all ease-out .25s;
-                background-image: url('./assets/img/coin.png');
+                background-image: url('https://s3.amazonaws.com/found-money/coin.png');
                 background-size: cover;
                 background-position: center;
             }
@@ -316,7 +316,7 @@
 }
 
 #question1 {
-    background-image: url('./assets/img/SupplyChaintech_Green.png');
+    background-image: url('https://s3.amazonaws.com/found-money/SupplyChaintech_Green.jpg');
     &:after {
         @media #{$iphone5} {
             height: 45%;
@@ -328,7 +328,7 @@
 }
 
 #question2 {
-    background-image: url('./assets/img/HighValueCare_Green.png');
+    background-image: url('https://s3.amazonaws.com/found-money/HighValueCare_Green.jpg');
     &:after {
         @media #{$iphone5} {
             height: 54%;
@@ -340,7 +340,7 @@
 }
 
 #question3 {
-    background-image: url('./assets/img/FinancialMgmt_Green.png');
+    background-image: url('https://s3.amazonaws.com/found-money/FinancialMgmt_Green.jpg');
     &:after {
         @media #{$iphone5} {
             height: 48%;
@@ -352,7 +352,7 @@
 }
 
 #question4 {
-    background-image: url('./assets/img/Labor_Green.png');
+    background-image: url('https://s3.amazonaws.com/found-money/Labor_Green.jpg');
     &:after {
         @media #{$iphone5} {
             height: 38%;
@@ -364,7 +364,7 @@
 }
 
 #question5 {
-    background-image: url('./assets/img/BestPractices_Green.png');
+    background-image: url('https://s3.amazonaws.com/found-money/BestPractices_Green.jpg');
     &:after {
         @media #{$iphone5} {
             height: 48%;
@@ -447,5 +447,81 @@
         @media #{$allPhones} {
             display: none;
         }
+    }
+}
+
+.mktoForm {
+    width: 90% !important;
+    margin: 0 auto !important;
+    max-width: 700px !important;
+    .mktoOffset {
+        display: none;
+    }
+    .mktoFormCol {
+        width: 100% !important;
+        float: none !important;
+        clear: both !important;
+    }
+    .mktoFieldWrap {
+        width: 100% !important;
+        clear:both !important;
+        float: none !important;
+        position: relative !important;
+    }
+    .mktoFormRow {
+        display: none !important;
+    }
+    .mktoFormRow:nth-child(-n+5) {
+        display: block !important;
+    }
+    .mktoFormRow:nth-child(3) {
+        width: 48% !important;
+        display: inline-block !important; 
+        @media #{$allPhones} {
+            width: 100% !important;
+            display: block !important
+        }
+        
+    }
+    .mktoFormRow:nth-child(2) {
+        width: 48% !important;
+        display: inline-block !important; 
+        margin-right: 4% !important;
+        @media #{$allPhones} {
+            width: 100% !important;
+            display: block !important;
+        }
+    }
+    input[type=text], input[type=email] {
+        width: 100% !important;
+        display: block !important;
+        float: none !important;
+        clear: both !important;
+        background-color: rgba(255,255,255, 0);
+        border: 0;
+        border-bottom: 3px solid #ffffff;
+        font-size: 1rem;
+        padding: 10px 0 !important;
+        outline: none !important;
+        font-family: 'Roboto Condensed', sans-serif !important;
+        color: #ffffff !important;
+        margin-bottom: 50px !important;
+        border-radius: 0px !important;
+    }
+    label {
+        color: #ffffff !important;
+        font-family: 'Roboto Condensed', sans-serif !important;
+        font-size: .65rem;
+        margin-bottom: 10px !important;
+        width: 100% !important;
+        top: 0;
+        transform: translateY(20px) !important;
+        padding-top: 0 !important;
+        @media #{$allPhones} {
+            margin-bottom: 30px !important;
+        }
+    }
+    select {
+        display: none !important;
     }
 }

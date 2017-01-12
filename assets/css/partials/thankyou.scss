@@ -1,50 +1,39 @@
 .header {
-    background-image: url('./assets/img/background-homepage.jpg');
+    background-image: url('https://s3.amazonaws.com/found-money/background-homepage.jpg');
     background-size: cover;
     width: 100%;
     background-position: center;
     padding: 20px;
     .logo {
         max-width: 300px;
+        transition: all ease-out .25s;
+        &:hover {
+            opacity: .75;
+        }
     }
 }
 
 .main {
-    background-image: url('./assets/img/thankyoupage_bgimage.jpg');
+    background-image: url('https://s3.amazonaws.com/found-money/thankyoupage_bgimage.jpg');
     background-size: cover;
     .text_thankyou {
         background-color: rgba(2, 54, 98, 0.72);
-        background-image: linear-gradient(to right, #2a72ae 0%, #2a72ae 100%), url('./assets/img/thankyoupage_bgimage.jpg');
+        background-image: linear-gradient(to right, #2a72ae 0%, #2a72ae 100%), url('https://s3.amazonaws.com/found-money/thankyoupage_bgimage.jpg');
         background-blend-mode: multiply;
         background-position: top;
         border-bottom: 5px solid $greenText;
         padding: 50px 0;
         border-top: 5px solid #2a72ad;
-        .text_wrapper {
-            display: block;
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            color: #ffffff;
-            h1 {
-                margin-bottom: 40px;
-            }
-            a {
-                color: #ffffff;
-                text-decoration: none;
-            }
-        }
     }
     .content_hub_selections {
         background-color: rgba(11, 88, 0, 0.75);
-        background-image: linear-gradient(to right, #3aad2a 0%, #3aad2a 100%), url('./assets/img/thankyoupage_bgimage.jpg');
+        background-image: linear-gradient(to right, #3aad2a 0%, #3aad2a 100%), url('https://s3.amazonaws.com/found-money/thankyoupage_bgimage.jpg');
         background-blend-mode: multiply;
         background-position: bottom;
-//        background-size: cover;
+        //        background-size: cover;
         padding: 50px 0;
         .hub_single {
-            background-color: #fff; 
+            background-color: #fff;
             display: block;
             width: 90%;
             max-width: 800px;
@@ -52,8 +41,11 @@
             margin-bottom: 70px;
             position: relative;
             padding: 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.75);
-//            min-height: 200px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.75);
+            transition: all ease-out .25s;
+            &:hover {
+                box-shadow: 0 10px 50px rgba(0,0,0,0.95);
+            }
             .img {
                 background-image: url('http://placehold.it/300x200');
                 background-size: cover;
@@ -63,7 +55,7 @@
                 text-align: left;
                 height: 100%;
                 min-height: 200px;
-//                position: relative;
+                //                position: relative;
                 img {
                     max-width: 100%;
                     display: block;
@@ -90,21 +82,44 @@
                 p {
                     font-size: .75rem;
                     margin-bottom: 10px;
+                    line-height: .85rem;
                 }
                 a {
                     font-size: .75rem;
-                    color: #000;
+                    color: $greenText;
                     text-decoration: none;
                     text-transform: uppercase;
                     transition: all ease-out .25s;
                     display: inline-block;
-                    &:hover {
+                    &:hover, &:focus {
                         transform: translateX(5px);
                         -ms-transform: translateX(5px);
+                    }
+                    &:active {
+                        transform: translateX(10px);
                     }
                 }
             }
         }
+    }
+}
+
+.text_wrapper {
+    display: block;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+    h1 {
+        margin-bottom: 40px;
+    }
+    a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    p {
+        margin-bottom: 50px;
     }
 }
 

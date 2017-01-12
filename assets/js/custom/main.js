@@ -8,31 +8,31 @@ window.onresize = function () {
 
 
 function main() {
-    
-    var browser = {
-    isIe: function () {
-        return navigator.appVersion.indexOf("MSIE") != -1;
-    },
-    navigator: navigator.appVersion,
-    getVersion: function () {
-        var version = 999; // we assume a sane browser
-        if (navigator.appVersion.indexOf("MSIE") != -1)
-        // bah, IE again, lets downgrade version number
-            version = parseFloat(navigator.appVersion.split("MSIE")[1]);
-        return version;
-    }
-};
-if (browser.isIe() && browser.getVersion() <= 9) {
 
-       alert("You are currently using Internet Explorer " + browser.getVersion() + " or are viewing the site in Compatibility View, please upgrade for a better user experience.")
+    var browser = {
+        isIe: function () {
+            return navigator.appVersion.indexOf("MSIE") != -1;
+        },
+        navigator: navigator.appVersion,
+        getVersion: function () {
+            var version = 999; // we assume a sane browser
+            if (navigator.appVersion.indexOf("MSIE") != -1)
+            // bah, IE again, lets downgrade version number
+                version = parseFloat(navigator.appVersion.split("MSIE")[1]);
+            return version;
+        }
+    };
+    if (browser.isIe() && browser.getVersion() <= 9) {
+
+        alert("You are currently using Internet Explorer " + browser.getVersion() + " or are viewing the site in Compatibility View, please upgrade for a better user experience.")
     }
-    
+
     console.log(browser.navigator);
-    
+
     if (browser.isIe() === true || browser.navigator.includes('Edge')) {
         $('body').addClass('ie');
     }
-    
+
     var advanceButtons = document.getElementsByClassName('advance_button'),
         advanceButtonLast = document.getElementsByClassName('advance_button_last'),
         moneyStack = document.getElementsByClassName('money_stack'),
@@ -40,14 +40,18 @@ if (browser.isIe() && browser.getVersion() <= 9) {
         i;
 
     for (i = 0; i < advanceButtons.length; i++) {
-        advanceButtons[i].addEventListener('click', function () {
-            advancePanel(this);
+        if (advanceButtons[i] !== undefined && advanceButtons[i] !== null) {
+            advanceButtons[i].addEventListener('click', function () {
+                advancePanel(this);
+            });
+        }
+    }
+
+    if (advanceButtonLast[0] !== null && advanceButtonLast[0] !== undefined) {
+        advanceButtonLast[0].addEventListener('click', function () {
+            finishAssessment(this);
         });
     }
-    
-    advanceButtonLast[0].addEventListener('click', function() {
-        finishAssessment(this);
-    });
 
     for (i = 0; i < moneyStack.length; i++) {
         moneyStack[i].addEventListener('click', function () {
@@ -69,13 +73,13 @@ if (browser.isIe() && browser.getVersion() <= 9) {
     slider1.noUiSlider.on('set', function () {
         var question1Next = document.getElementById('q1Next');
         question1Next.style.visibility = 'visible';
-        setTimeout(function() {
-             question1Next.style.opacity = 1;
+        setTimeout(function () {
+            question1Next.style.opacity = 1;
         }, 100);
-       
+
 
     });
-    
+
 }
 
 function resizeIntro() {
@@ -145,19 +149,19 @@ function resizeQuestions() {
 }
 
 function getStarted(e) {
-    
+
     //Slide out intro, slide in 1st question
-    
+
     var introduction = document.getElementById('intro'),
         questions = document.getElementById('questions'),
-//        gsEmail = document.getElementsByName('gsEmail')[0].value,
-//        gsName = document.getElementsByName('gsName')[0].value,
-//        gsOrg = document.getElementsByName('gsOrg')[0].value,
+        //        gsEmail = document.getElementsByName('gsEmail')[0].value,
+        //        gsName = document.getElementsByName('gsName')[0].value,
+        //        gsOrg = document.getElementsByName('gsOrg')[0].value,
         mktoFName = document.getElementsByName('FirstName')[0],
         mktoLName = document.getElementsByName('LastName')[0],
         mktoEmail = document.getElementsByName('Email'),
         mktoComp = document.getElementsByName('Company');
-    
+
     $(introduction).fadeOut(350);
     $('#progress').fadeIn(350);
     setTimeout(function () {
@@ -169,26 +173,26 @@ function getStarted(e) {
         }, 50)
 
     }, 450);
-    
+
     //Set hidden form values
-    
-//    gsName = gsName.split(" ");
-//    
-//    mktoFName.value = gsName[0];
-//    mktoLName.value = gsName[1];
-//    mktoEmail.value = gsEmail;
-//    mktoComp.value = gsOrg;
-    
+
+    //    gsName = gsName.split(" ");
+    //    
+    //    mktoFName.value = gsName[0];
+    //    mktoLName.value = gsName[1];
+    //    mktoEmail.value = gsEmail;
+    //    mktoComp.value = gsOrg;
+
     var pBar = document.getElementById('progress-bar');
-    
+
     TweenLite.to(pBar, .25, {
-        width: 100/6 + '%'
+        width: 100 / 6 + '%'
     });
-    
-    setTimeout(function() {
+
+    setTimeout(function () {
         $('#questions-logo').fadeIn(500);
     }, 1000)
-    
+
     return false;
 }
 
@@ -286,9 +290,18 @@ function updateValues() {
         slider3Val = slider3.noUiSlider.get(),
         slider4Val = slider4.noUiSlider.get(),
         slider5Val = slider5.noUiSlider.get(),
-        form1Set = document.getElementsByName('costCamSCMat')[0];
-    
+        form1Set = document.getElementsByName('costCamSCMat')[0],
+        form2Set = document.getElementsByName('costCamSCSavings')[0],
+        form3Set = document.getElementsByName('costCamFinanceManagement')[0],
+        form4Set = document.getElementsByName('costCamLaborManagement')[0],
+        form5Set = document.getElementsByName('costCamAdvisoryServices')[0];
+        
+
     form1Set.value = parseInt(slider1Val);
+    form2Set.value = parseInt(slider2Val);
+    form3Set.value = parseInt(slider3Val);
+    form4Set.value = parseInt(slider4Val);
+    form5Set.value = parseInt(slider5Val);
 }
 
 function updateProgress(questionNumber, direction) {
@@ -319,8 +332,8 @@ function updateProgress(questionNumber, direction) {
             y: '0%'
         })
     }
-    
-    
+
+
 }
 
 $(function () {
@@ -337,4 +350,3 @@ $(function () {
         }
     });
 });
-
