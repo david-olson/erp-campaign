@@ -231,6 +231,7 @@ function finishAssessment(e) {
     });
     $('#progress').fadeOut(500);
     $('#questions-logo').fadeOut(500);
+    updateValues();
 }
 
 function reversePanel(e) {
@@ -290,11 +291,14 @@ function updateValues() {
         slider3Val = slider3.noUiSlider.get(),
         slider4Val = slider4.noUiSlider.get(),
         slider5Val = slider5.noUiSlider.get(),
+        q6Val = document.getElementsByName('question6answers'),
+
         form1Set = document.getElementsByName('costCamSCMat')[0],
         form2Set = document.getElementsByName('costCamSCSavings')[0],
         form3Set = document.getElementsByName('costCamFinanceManagement')[0],
         form4Set = document.getElementsByName('costCamLaborManagement')[0],
-        form5Set = document.getElementsByName('costCamAdvisoryServices')[0];
+        form5Set = document.getElementsByName('costCamAdvisoryServices')[0],
+        form6Set = document.getElementsByName('Web_Form_Comments__c');
         
 
     form1Set.value = parseInt(slider1Val);
@@ -302,6 +306,18 @@ function updateValues() {
     form3Set.value = parseInt(slider3Val);
     form4Set.value = parseInt(slider4Val);
     form5Set.value = parseInt(slider5Val);
+    
+    for (var i = 0; i < q6Val.length; i++) {
+//        console.log(q6Val[i].checked);
+        for (var z = 0; z < form6Set.length; z++) {
+            if (q6Val[i].checked == true && q6Val[i].value === form6Set[z].value) {
+                form6Set[z].checked = true;
+//                console.log('Question ' + z + ' checked.');
+//                console.log(form6Set[z]);
+            }
+        }
+    }
+    
 }
 
 function updateProgress(questionNumber, direction) {

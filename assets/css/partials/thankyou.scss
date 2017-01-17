@@ -1,12 +1,16 @@
 .header {
     background-image: url('https://s3.amazonaws.com/found-money/background-homepage.jpg');
+    background-image: linear-gradient(to right, #3aad2a 0%, #3aad2a 100%), url('https://s3.amazonaws.com/found-money/background-homepage.jpg');
+    background-blend-mode: multiply;
     background-size: cover;
     width: 100%;
     background-position: center;
     padding: 20px;
     .logo {
-        max-width: 300px;
+        max-width: 400px;
         transition: all ease-out .25s;
+        margin: 0 auto;
+        display: block;
         &:hover {
             opacity: .75;
         }
@@ -21,71 +25,86 @@
         background-image: linear-gradient(to right, #2a72ae 0%, #2a72ae 100%), url('https://s3.amazonaws.com/found-money/thankyoupage_bgimage.jpg');
         background-blend-mode: multiply;
         background-position: top;
-        border-bottom: 5px solid $greenText;
+        border-bottom: 5px solid #ffffff;
         padding: 50px 0;
         border-top: 5px solid #2a72ad;
+        background-size: cover;
+        .text_wrapper {
+            max-width: 1000px;
+        }
     }
     .content_hub_selections {
         background-color: rgba(11, 88, 0, 0.75);
         background-image: linear-gradient(to right, #3aad2a 0%, #3aad2a 100%), url('https://s3.amazonaws.com/found-money/thankyoupage_bgimage.jpg');
         background-blend-mode: multiply;
-        background-position: bottom;
+        background-position: center;
+        background-size: cover;
         //        background-size: cover;
         padding: 50px 0;
+        .text_wrapper {
+            p {
+                font-weight: 300;
+                a {
+                    font-weight: 700;
+                }
+            }
+        }
+        .hub_wrapper {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
         .hub_single {
             background-color: #fff;
-            display: block;
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
+            display: inline-block;
+            vertical-align: top;
+            width: (100% / 3) - 5;
+            margin-right: 5%;
             margin-bottom: 70px;
             position: relative;
             padding: 0;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.75);
             transition: all ease-out .25s;
+             @media only screen and (max-width: 700px) {
+                width: 100%;
+                margin-right: 0;
+                 margin-bottom: 20px;
+            }
             &:hover {
                 box-shadow: 0 10px 50px rgba(0,0,0,0.95);
             }
+            &:last-of-type {
+                margin-right: 0;
+            }
+           
             .img {
-                background-image: url('http://placehold.it/300x200');
-                background-size: cover;
-                background-position: center;
-                width: 34%;
                 display: block;
-                text-align: left;
-                height: 100%;
-                min-height: 200px;
-                //                position: relative;
+                margin-bottom: 20px;
+                width: 100%;
                 img {
-                    max-width: 100%;
                     display: block;
-                    height: 100%;
-                    margin: 0;
+                    width: 100%;
                 }
             }
             .content {
                 text-align: left;
-                width: 65%;
-                display: inline-block;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                -ms-atransform: translateY(-50%);
-                right: 0;
-                padding: 10px;
+                width: 90%;
+                margin: 0 auto;
+                padding: 0 0 20px 0;
+                display: block;
                 vertical-align: top;
                 h2 {
-                    font-size: 1rem;
+                    font-size: .75rem;
                     margin-bottom: 10px;
                     margin-top: 0;
                 }
                 p {
-                    font-size: .75rem;
+                    font-size: .65rem;
                     margin-bottom: 10px;
                     line-height: .85rem;
                 }
                 a {
-                    font-size: .75rem;
+                    font-size: .65rem;
                     color: $greenText;
                     text-decoration: none;
                     text-transform: uppercase;
