@@ -66,8 +66,9 @@ gulp.task('browser-sync', function() {
         '**/*.{png,jpg,gif}'
     ];
     browserSync.init(files, {
-        proxy: url,
-        port: 9888,
+//        proxy: url,
+//        port: 9888,
+        server: './',
         injectChanges: true
     });
 });

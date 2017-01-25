@@ -29,7 +29,7 @@ function main() {
 
     console.log(browser.navigator);
 
-    if (browser.isIe() === true || browser.navigator.includes('Edge')) {
+    if (browser.isIe() === true || browser.navigator.indexOf('Edge')) {
         $('body').addClass('ie');
     }
 
@@ -66,7 +66,10 @@ function main() {
     }
 
     resizeIntro();
-    resizeQuestions();
+    setTimeout(function() {
+        resizeQuestions();
+    }, 200);
+    
     setTimeout(function () {
         document.getElementById('questions').style.display = 'none';
     }, 50);
@@ -191,7 +194,11 @@ function getStarted(e) {
 
     setTimeout(function () {
         $('#questions-logo').fadeIn(500);
+    }, 1000);
+    setTimeout(function() {
+        resizeQuestions();
     }, 1000)
+   
 
     return false;
 }
