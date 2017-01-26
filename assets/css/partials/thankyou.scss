@@ -32,6 +32,18 @@
         .text_wrapper {
             max-width: 1000px;
         }
+        .sales_button {
+            display: block;
+            width: 100%;
+            padding: 20px; 
+            background-color: #109132;
+            margin: 0 auto;
+            max-width: 400px;
+            transition: all ease-out .25s;
+            &:hover {
+                background-color: darken(#109132, 10%);
+            }
+        }
     }
     .content_hub_selections {
         background-color: rgba(11, 88, 0, 0.75);

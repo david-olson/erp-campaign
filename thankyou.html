@@ -5,10 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Premier Inc. - Thank You</title>
-    <link rel="stylesheet" href="main.min.css">
+    <link rel="stylesheet" href="https://s3.amazonaws.com/found-money/main.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://s3.amazonaws.com/found-money/vendors.min.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Shadows+Into+Light" rel="stylesheet">
+  	<meta class="mktoString" id="content-hub-image-1" mktoName="Content Hub Block 1 Image Source" default="http://placehold.it/300x200">
+  	<meta class="mktoString" id="content-hub-title-1" mktoName="Content Hub Block 1 Title" default="Lorem Ipsum">
+  	<meta class="mktoString" id="content-hub-para-1" mktoName="Content Hub Block 1 Description" default="Nulla vitae elit libero, a pharetra augue.">
+  	<meta class="mktoString" id="content-hub-link-1" mktoName="Content Hub Block 1 Link" default="#">
+  <meta class="mktoString" id="content-hub-image-2" mktoName="Content Hub Block 2 Image Source" default="http://placehold.it/300x200">
+  	<meta class="mktoString" id="content-hub-title-2" mktoName="Content Hub Block 2 Title" default="Lorem Ipsum">
+  	<meta class="mktoString" id="content-hub-para-2" mktoName="Content Hub Block 2 Description" default="Nulla vitae elit libero, a pharetra augue.">
+  	<meta class="mktoString" id="content-hub-link-2" mktoName="Content Hub Block 2 Link" default="#">
+  <meta class="mktoString" id="content-hub-image-3" mktoName="Content Hub Block 3 Image Source" default="http://placehold.it/300x200">
+  	<meta class="mktoString" id="content-hub-title-3" mktoName="Content Hub Block 3 Title" default="Lorem Ipsum">
+  	<meta class="mktoString" id="content-hub-para-3" mktoName="Content Hub Block 3 Description" default="Nulla vitae elit libero, a pharetra augue.">
+  	<meta class="mktoString" id="content-hub-link-3" mktoName="Content Hub Block 3 Link" default="#">
+  	<meta class="mktoString" id="call-sales-button-link" mktoName="Call Sales Button Link" default="#">
+  	<meta class="mktoBoolean" id="show-sales-button" mktoName="Show Sales Button" default="true" true_value="block" false_value="none">
     <!--[if IE]>
 	<style>
        .content_hub_selections, .text_thankyou {
@@ -24,11 +38,14 @@
     </div>
     <div class="main">
         <div class="text_thankyou">
-            <div class="text_wrapper mktoEditable" id="section1">
-                <p>Like you, seventy percent of C-suite leaders report that healthcare IT is a key priority for capital investment. This includes finding, managing and running an agile ERP solution.</p>
-                <p>At Premier, we have helped hundreds of health systems implement and optimize ERP systems to effectively manage back-end business operations, improve operational efficiency across an entire health system, and easily accommodate growth and consolidation.</p>
-                <p>See what Renown Health’s Chief Financial Officer, Janet Townsend, had to say about what Premier did for her organization “Because of the back office efficiencies, we have been able to absorb the growth we’ve had with the same staff.”</p>
-            </div>
+            <div class="text_wrapper">
+              <div class="mktoText" id="section1" mktoName="Main Text Block">
+                  <p>Like you, seventy percent of C-suite leaders report that healthcare IT is a key priority for capital investment. This includes finding, managing and running an agile ERP solution.</p>
+                  <p>At Premier, we have helped hundreds of health systems implement and optimize ERP systems to effectively manage back-end business operations, improve operational efficiency across an entire health system, and easily accommodate growth and consolidation.</p>
+                  <p>See what Renown Health’s Chief Financial Officer, Janet Townsend, had to say about what Premier did for her organization “Because of the back office efficiencies, we have been able to absorb the growth we’ve had with the same staff.”</p>
+            	</div>
+            	<a class="sales_button" href="${call-sales-button-link}" style="display: ${show-sales-button};">Get In Touch With Sales</a>
+              </div>
         </div>
         <div class="content_hub_selections">
             <div class="text_wrapper">
@@ -37,32 +54,32 @@
             <div class="hub_wrapper">
                 <div class="hub_single">
                     <div class="img">
-                        <img src="./assets/img/AngledBuildings.png" alt="" />
+                        <img src="${content-hub-image-1}" alt="" />
                     </div>
                     <div class="content">
-                        <h2>Ligula Adipiscing</h2>
-                        <p>Aenean lacinia bibendum nulla sed consectetur.</p>
-                        <a href="">Read More</a>
+                        <h2>${content-hub-title-1}</h2>
+                        <p>${content-hub-para-1}</p>
+                        <a href="${content-hub-link-1}">Read More</a>
                     </div>
                 </div>
                 <div class="hub_single">
                     <div class="img">
-                        <img src="./assets/img/Windows.png" alt="">
+                        <img src="${content-hub-image-2}" alt="">
                     </div>
                     <div class="content">
-                        <h2>Tellus Lorem</h2>
-                        <p>Cras mattis consectetur purus sit amet fermentum.</p>
-                        <a href="">Read More</a>
+                        <h2>${content-hub-title-2}</h2>
+                        <p>${content-hub-para-2}</p>
+                        <a href="${content-hub-link-2}">Read More</a>
                     </div>
                 </div>
                 <div class="hub_single">
                     <div class="img">
-                        <img src="./assets/img/DataTech.png" alt="">
+                        <img src="${content-hub-image-3}" alt="">
                     </div>
                     <div class="content">
-                        <h2>Ornare Vehicula Ridiculus</h2>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-                        <a href="">Read More</a>
+                        <h2>${content-hub-title-3}</h2>
+                        <p>${content-hub-para-3}</p>
+                        <a href="${content-hub-link-3}">Read More</a>
                     </div>
                 </div>
             </div>
